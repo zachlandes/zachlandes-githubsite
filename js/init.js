@@ -222,8 +222,8 @@ function portu_tm_animate_text(){
 		animateSpan.typed({
 			strings: ["a data engineer", "a product manager", "an economist"],
 			loop: true,
-			startDelay: 1e3,
-			backDelay: 2e3
+			startDelay: 2e2,
+			backDelay: 1e3
 		});
 }
 
