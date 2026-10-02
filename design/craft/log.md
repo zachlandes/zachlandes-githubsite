@@ -8,6 +8,6 @@ Variants, screenshots and review boards live outside this public repository, in 
 
 The captain asked to see the plan before any variant is built.
 Proposed mix: two seed-string variants, three research variants (plain-text essayists; annotated long-form; interactive explainers), and a sixth that is either human-steered or a third seed.
-Answer: pending.
+Answers so far:
 Captain, on the board: "since this is my personal blog, i may want to have a bio page that has a slightly longer bio, not sure." An About page was added to the requirements, droppable at the copy rewrite.
 Captain, on question 3 (human-steered variant): "only if i dont like what we get from the seeds". Variant F becomes a third seed; the steered variant is offered again at the Discover gate.
