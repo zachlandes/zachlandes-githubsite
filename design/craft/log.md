@@ -34,4 +34,10 @@ No blind critic ranking was run in Discover.
 
 Proposed reference designs for Define: maggieappleton.com essay (desktop), joshwcomeau.com post header (desktop), lucumr.pocoo.org post (desktop), brandur.org essay body (desktop), hillelwayne.com post (phone).
 
+Captain, on the board: "My favourite two are E and A What should we do next?"
+Options offered: E's structure with A's type and colour (recommended), E alone, or A alone.
+Captain: "Mock uh your first example. I'd be curious to see it"
+
+| G | Combination of E (structure) and A (type and colour) | E's track post list, header, contents rail, overhanging figure panels and margin note; A's Newsreader and Plex Mono, paper and dark backgrounds, teal links, mint note and flat details |
+
 Gate: pending.
