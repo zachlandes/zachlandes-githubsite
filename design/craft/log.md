@@ -43,4 +43,7 @@ Captain: "Mock uh your first example. I'd be curious to see it"
 Captain: "Something I liked about H was how it had like a quote that popped out in orange whether we change the highlight colors, uh, I do like being able to have those kind of like set out um quotes."
 Read as E, the only variant with a set-out quote in orange; E's boxed quote with an offset block was added to G, shown in teal and orange.
 
+Captain: "if quote is orange, then all highlight color should be that orange"
+Built "G in orange": G with every accent (links, track, contents rail, margin note, quote) in the figures' orange-red; G itself stays teal.
+
 Gate: pending.
