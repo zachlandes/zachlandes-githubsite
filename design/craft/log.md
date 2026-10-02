@@ -40,4 +40,7 @@ Captain: "Mock uh your first example. I'd be curious to see it"
 
 | G | Combination of E (structure) and A (type and colour) | E's track post list, header, contents rail, overhanging figure panels and margin note; A's Newsreader and Plex Mono, paper and dark backgrounds, teal links, mint note and flat details |
 
+Captain: "Something I liked about H was how it had like a quote that popped out in orange whether we change the highlight colors, uh, I do like being able to have those kind of like set out um quotes."
+Read as E, the only variant with a set-out quote in orange; E's boxed quote with an offset block was added to G, shown in teal and orange.
+
 Gate: pending.
