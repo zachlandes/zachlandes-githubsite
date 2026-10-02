@@ -17,10 +17,17 @@ Visible at rest, in this order of importance:
 
 1. The name, Zach Landes.
 2. A short about: one or two sentences, from the existing site's text only.
-3. Links: email (zach@zachlandes.com), LinkedIn (linkedin.com/in/zachlandes), resume (PDF), RSS feed.
+3. Links: the About page, email (zach@zachlandes.com), LinkedIn (linkedin.com/in/zachlandes), resume (PDF), RSS feed.
 4. The post list: each item is a title and a date, optionally a one-line description.
 
 No hero image, no services, no portfolio, no testimonials, no contact form.
+
+### About
+
+A longer bio than the home page's one or two sentences, from the existing site and resume only, marked for Zachary to rewrite.
+Repeats the email, LinkedIn and resume links.
+Linked from the home page's short about and from every post's ending.
+Zachary may drop it at the copy rewrite; the home page must still read complete without it.
 
 ### Post
 
@@ -36,7 +43,7 @@ Below the title, the body is a single reading column that must host all of these
 - An interactive block: buttons or a control that changes a figure.
 - Optional: a margin note beside a paragraph on desktop, falling back inline or as a footnote on a phone.
 
-Ends with: the author's name, a link to the home page and the feed.
+Ends with: the author's name, links to the home page, the About page and the feed.
 
 ### Feed
 
@@ -45,6 +52,7 @@ An Atom or RSS feed of listed posts; not a page to design.
 ## States
 
 - Home with one listed post, and with five.
+- About page at rest.
 - Post at rest (top of page) and mid-article (a wide figure in view).
 - Light and dark colour schemes both supported (follow the system setting).
 
