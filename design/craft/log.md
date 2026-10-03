@@ -97,3 +97,10 @@ Added to the requirements before round 1: the post's figures and copy are the au
 - Captain, on Codex imagery: "not sure that's relevant for this". No generated imagery for the site.
 - Captain: "well, id guess its more the kind of thing i would personally direct when the site design has matured through the critic rounds etc". Imagery is his to direct after the design matures; offer it at the end.
 - Captain, idea for later (article work, outside this redesign): "i could see it being fun to generate a version of the trolley diorama that looks like it was made via collage using old life magazines etc".
+
+### Define gate, after round 8
+
+- Escalated at the eight-round limit with no convergence (lead critic 6 to 7 throughout, second critic 7 to 8).
+- Captain: "Okay, I like what you've done." About photo: "on the desktop for sure, I want the full size image"; he floated the small circle on mobile and asked whether different crops per screen size is an anti-pattern. It is standard art direction, so phones get the close crop.
+- Captain: "If you think that the gaps are valid, then we can keep going." Round 9 is steered by the round-8 gaps judged valid: the chart (red model names read like the red own-server dot, loose key, marks on the 100% line, the count column's label), loose body leading, and early title wraps on the home page. Not carried: the dateline and masthead size, which reverse the critic's own earlier asks, and moving LinkedIn and Resume out of the nav, which is content.
+- Captain asked firstmate for his new collage version of the trolley diorama to replace the post's diorama figure.
