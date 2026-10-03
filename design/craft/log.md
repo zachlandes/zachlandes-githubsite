@@ -55,4 +55,13 @@ Captain: "you can use the photo of me from my old website design". The About pag
 
 Captain: "why crop it to head and shoulders?" Explained (a full-length shot at a small size leaves the face a few pixels tall) and offered the whole photo shown wider instead; framing left open for Define.
 
-Gate: pending.
+Captain asked what Define is; explained the three stages and restated the two open questions.
+Captain: "those two are a good bar yes", read as yes to both.
+
+Gate passed (2026-10-03):
+- Direction: G in orange (E's structure, A's type, every accent in the figures' orange-red, E's set-out quote).
+- Changes carried into Define: the four wording names become plain text, not code; About page gets `img/about/main.jpg`, framing to be picked in Define.
+- References: maggieappleton.com essay (desktop), joshwcomeau.com post header (desktop), lucumr.pocoo.org post (desktop), brandur.org essay body (desktop), hillelwayne.com post (phone).
+- Imagery: none; Define is code-only, no key given.
+- Steered variant: not needed.
+- No blind ranking was run in Discover.
