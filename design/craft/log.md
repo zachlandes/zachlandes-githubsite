@@ -81,4 +81,5 @@ Added to the requirements before round 1: the post's figures and copy are the au
 | Round | Fable | Astra | Fable rank | Astra rank | Critique sent to builder | Note |
 | --- | --- | --- | --- | --- | --- | --- |
 | 0 | 6 | 8 | ref-1 > ref-4 > ref-2 > screen-2 > screen-4 > ref-3 > screen-1 > screen-5 > screen-3 > ref-5 | ref-4 > ref-1 > screen-2 > ref-2 > screen-1 > screen-4 > screen-3 > screen-5 > ref-3 > ref-5 | Fable | Astra verified: full prompt with ten full-size screenshots worked first try |
+| 1 | 6 | 7 | ref-1 > ref-2 > ref-4 > screen-2 > screen-4 > screen-1 > screen-5 > ref-3 > screen-3 > ref-5 | ref-4 > ref-1 > ref-2 > screen-2 > screen-1 > screen-5 > screen-4 > screen-3 > ref-3 > ref-5 | Fable | Builder had dropped the set-out quote; restored from a new "Decided by Zachary" requirement before scoring. Both critics again rank the chart screen lowest, on the chart's internals, which the builder may not change |
 - Captain: "i think you need to use codex cli to do it, so let's set that up." Escalated to firstmate (machine-wide tool install); Define continues code-only meanwhile.
