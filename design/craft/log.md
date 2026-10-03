@@ -46,4 +46,9 @@ Read as E, the only variant with a set-out quote in orange; E's boxed quote with
 Captain: "if quote is orange, then all highlight color should be that orange"
 Built "G in orange": G with every accent (links, track, contents rail, margin note, quote) in the figures' orange-red; G itself stays teal.
 
+Captain: "I like G in orange. A few questions: Whats going on with those "Consequences, JSOn, terse, in words" beige badges that do nothing? and second, should my about section use a photo"
+Direction picked: G in orange.
+Answered: the badges were the four wording names set as inline code in the content pack; they become plain text in Define. Recommended a small photo on About only; the one real photo of him on the current site is `img/about/main.jpg` (2019), and he was asked for a current head-and-shoulders photo.
+Still open at the gate: the reference set, and code-only Define.
+
 Gate: pending.
