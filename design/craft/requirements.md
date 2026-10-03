@@ -65,3 +65,10 @@ An Atom or RSS feed of listed posts; not a page to design.
 - No pop-ups, cookie or tracking banners, analytics, newsletter forms or comments.
 - Fast: no client framework, no web-font payload beyond a small set, no images that are not content.
 - Biographical text comes only from the existing site and resume and is marked for Zachary to rewrite.
+
+## Decided by Zachary
+
+These are his choices from the Discover review; they are not open to redesign.
+
+- Block quotes are set out: boxed, with an offset solid block behind them in the accent colour, so a quote pops out of the prose.
+- One accent colour, the orange-red of the figures, used for every highlight (links, the active contents item, note markers, the quote).
