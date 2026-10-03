@@ -91,3 +91,4 @@ Added to the requirements before round 1: the post's figures and copy are the au
 - The key line first had the filled and hollow marks swapped; the builder caught it against the figure's own labels, and the line was corrected from the article's styles (stranger hollow, own server filled accent).
 - Captain, on Codex imagery: "not sure that's relevant for this". No generated imagery for the site.
 - Captain: "well, id guess its more the kind of thing i would personally direct when the site design has matured through the critic rounds etc". Imagery is his to direct after the design matures; offer it at the end.
+- Captain, idea for later (article work, outside this redesign): "i could see it being fun to generate a version of the trolley diorama that looks like it was made via collage using old life magazines etc".
