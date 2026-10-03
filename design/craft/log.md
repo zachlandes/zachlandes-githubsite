@@ -67,3 +67,17 @@ Gate passed (2026-10-03):
 - No blind ranking was run in Discover.
 - Captain clarified "sorry, those five": the five references are confirmed.
 - Captain: "you can use ai generated images or motion via my openai subscription (not api)". No image-generation route through the subscription exists on this machine: `pi` signs in with it but has no image output, and the Codex CLI is not installed. The requirements also rule out images that are not content. Define stays code-only; imagery can be revisited in Deliver with an API key.
+
+## 2026-10-03 Define
+
+Builder: an Opus subagent continued across rounds, working on a copy of G in orange outside the repository.
+Starting point (before round 0): the four wording names became plain text; the About page shows the whole photo (`about-crop.html` holds the cropped alternative).
+Template: `prompts/critic-ranked.md`, with the five confirmed references.
+Each round screenshots five fixed states, light scheme: home desktop, post top desktop, post mid-article desktop, post top phone, home phone.
+Frozen prompt shasum: `a2d52381ec212918b92476ff3e03219cc839f266`.
+Full critiques are kept with the variants outside this public repository, because they quote unpublished article text.
+Added to the requirements before round 1: the post's figures and copy are the author's content, so the builder frames them and never redraws or rewrites them.
+
+| Round | Fable | Astra | Fable rank | Astra rank | Critique sent to builder | Note |
+| --- | --- | --- | --- | --- | --- | --- |
+| 0 | 6 | 8 | ref-1 > ref-4 > ref-2 > screen-2 > screen-4 > ref-3 > screen-1 > screen-5 > screen-3 > ref-5 | ref-4 > ref-1 > screen-2 > ref-2 > screen-1 > screen-4 > screen-3 > screen-5 > ref-3 > ref-5 | Fable | Astra verified: full prompt with ten full-size screenshots worked first try |

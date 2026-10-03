@@ -59,6 +59,7 @@ An Atom or RSS feed of listed posts; not a page to design.
 
 ## Locked constraints
 
+- The post's figures and copy are the author's article content: the site design sets their frame, placement, caption style and the page around them, and never redraws what is inside a figure or rewrites the text.
 - Static output served by GitHub Pages from the repository root of `master`; custom domain via `CNAME`.
 - Title, description and preview image metadata on every page.
 - No pop-ups, cookie or tracking banners, analytics, newsletter forms or comments.
