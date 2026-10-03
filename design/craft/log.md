@@ -53,4 +53,6 @@ Still open at the gate: the reference set, and code-only Define.
 
 Captain: "you can use the photo of me from my old website design". The About page gets `img/about/main.jpg`, cropped to head and shoulders; added to the requirements.
 
+Captain: "why crop it to head and shoulders?" Explained (a full-length shot at a small size leaves the face a few pixels tall) and offered the whole photo shown wider instead; framing left open for Define.
+
 Gate: pending.
