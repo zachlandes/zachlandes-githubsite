@@ -89,3 +89,4 @@ Added to the requirements before round 1: the post's figures and copy are the au
 - Firstmate, 2026-10-03: Codex CLI installed, audited and signed in on the captain's ChatGPT plan; image generation verified (`codex exec --skip-git-repo-check --model gpt-6.1-sol '$imagegen <prompt>'`). Define stays code-only; imagery only if a direction genuinely calls for it, under the no-images-that-are-not-content requirement.
 - Captain, during round 3: "you can improve the trolley chart if it improves the score!" The own-server chart may now be restyled with its data unchanged; its key, which the content pack had left out, was added to the requirements.
 - The key line first had the filled and hollow marks swapped; the builder caught it against the figure's own labels, and the line was corrected from the article's styles (stranger hollow, own server filled accent).
+- Captain, on Codex imagery: "not sure that's relevant for this". No generated imagery for the site.
