@@ -109,3 +109,7 @@ Added to the requirements before round 1: the post's figures and copy are the au
 | Round | Fable | Astra | Fable rank | Astra rank | Critique sent to builder | Note |
 | --- | --- | --- | --- | --- | --- | --- |
 | 9 | 7 | 8 | screen-3 > screen-2 > ref-1 > screen-1 > screen-5 > screen-4 > ref-2 > ref-4 > ref-3 > ref-5 | ref-1 > screen-2 > ref-4 > screen-1 > screen-3 > ref-2 > screen-4 > screen-5 > ref-3 > ref-5 | Zachary's gate notes plus the valid round-8 gaps | Steered by the gate answer, not the frozen loop: About art direction, chart and leading fixes, and the collage diorama in the post (robot now gets X eyes when its server dies). The lead critic ranks both post screens above every reference and calls the remaining misses system-level consistency, not taste; back to Zachary |
+
+### Define gate, after round 9
+
+- Captain: "polish starting with the fix list". Define closed at round 9 (lead critic 7, second critic 8, not converged); Deliver opens with the five-item fix list from the board.
