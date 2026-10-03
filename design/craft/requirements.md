@@ -26,6 +26,7 @@ No hero image, no services, no portfolio, no testimonials, no contact form.
 
 A longer bio than the home page's one or two sentences, from the existing site and resume only, marked for Zachary to rewrite.
 Repeats the email, LinkedIn and resume links.
+A small photo of Zachary: the existing `img/about/main.jpg`, cropped to head and shoulders. About page only; the home page and posts carry no photo.
 Linked from the home page's short about and from every post's ending.
 Zachary may drop it at the copy rewrite; the home page must still read complete without it.
 

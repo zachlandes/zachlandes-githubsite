@@ -51,4 +51,6 @@ Direction picked: G in orange.
 Answered: the badges were the four wording names set as inline code in the content pack; they become plain text in Define. Recommended a small photo on About only; the one real photo of him on the current site is `img/about/main.jpg` (2019), and he was asked for a current head-and-shoulders photo.
 Still open at the gate: the reference set, and code-only Define.
 
+Captain: "you can use the photo of me from my old website design". The About page gets `img/about/main.jpg`, cropped to head and shoulders; added to the requirements.
+
 Gate: pending.
