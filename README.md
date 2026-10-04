@@ -22,6 +22,10 @@ To share a post without listing it, put it in `_unlisted/short-name.md` instead 
 It gets the same layout and a working address, but stays off the home page, the feed and `llms.txt`, and asks search engines not to index it.
 Moving it into `_posts` with a dated file name publishes it.
 
+The trolley post (`_unlisted/trolley.html`) is generated from the trolley-bench article.
+To refresh it, rebuild the article's `site/a.html` there, then run `python3 tools/trolley/build.py path/to/trolley-bench/site`; it rewrites the post, `assets/trolley/pane.html` and `assets/trolley/results.js`.
+`assets/trolley/trolley.css` and `assets/trolley/dioramas.js` are written by hand.
+
 ## Previewing
 
 `bundle install && bundle exec jekyll serve` builds the site locally with the same gems GitHub Pages uses.

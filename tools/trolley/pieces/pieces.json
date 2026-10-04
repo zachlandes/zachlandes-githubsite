@@ -1,0 +1,229 @@
+{
+ "people": [
+  {
+   "file": "people-1.webp",
+   "w": 82,
+   "h": 220
+  },
+  {
+   "file": "people-2.webp",
+   "w": 92,
+   "h": 220
+  },
+  {
+   "file": "people-3.webp",
+   "w": 112,
+   "h": 220
+  },
+  {
+   "file": "people-4.webp",
+   "w": 80,
+   "h": 220
+  },
+  {
+   "file": "people-5.webp",
+   "w": 70,
+   "h": 220
+  },
+  {
+   "file": "people-6.webp",
+   "w": 87,
+   "h": 220
+  },
+  {
+   "file": "people-7.webp",
+   "w": 86,
+   "h": 220
+  },
+  {
+   "file": "people-8.webp",
+   "w": 92,
+   "h": 220
+  }
+ ],
+ "workers": [
+  {
+   "file": "workers-1.webp",
+   "w": 100,
+   "h": 220
+  },
+  {
+   "file": "workers-2.webp",
+   "w": 72,
+   "h": 220
+  },
+  {
+   "file": "workers-3.webp",
+   "w": 79,
+   "h": 220
+  },
+  {
+   "file": "workers-4.webp",
+   "w": 80,
+   "h": 220
+  },
+  {
+   "file": "workers-5.webp",
+   "w": 92,
+   "h": 220
+  },
+  {
+   "file": "workers-6.webp",
+   "w": 94,
+   "h": 220
+  }
+ ],
+ "trolley": [
+  {
+   "file": "trolley-1.webp",
+   "w": 360,
+   "h": 149
+  }
+ ],
+ "lever": [
+  {
+   "file": "lever-1.webp",
+   "w": 35,
+   "h": 220
+  },
+  {
+   "file": "lever-2.webp",
+   "w": 220,
+   "h": 179
+  }
+ ],
+ "scenery": [
+  {
+   "file": "scenery-1.webp",
+   "w": 240,
+   "h": 240
+  },
+  {
+   "file": "scenery-2.webp",
+   "w": 240,
+   "h": 231
+  },
+  {
+   "file": "scenery-3.webp",
+   "w": 240,
+   "h": 235
+  },
+  {
+   "file": "scenery-4.webp",
+   "w": 240,
+   "h": 151
+  },
+  {
+   "file": "scenery-5.webp",
+   "w": 240,
+   "h": 164
+  },
+  {
+   "file": "scenery-6.webp",
+   "w": 240,
+   "h": 155
+  },
+  {
+   "file": "scenery-7.webp",
+   "w": 240,
+   "h": 181
+  },
+  {
+   "file": "scenery-8.webp",
+   "w": 240,
+   "h": 181
+  },
+  {
+   "file": "scenery-9.webp",
+   "w": 240,
+   "h": 179
+  }
+ ],
+ "server": [
+  {
+   "file": "server-1.webp",
+   "w": 154,
+   "h": 240
+  }
+ ],
+ "bridge": [
+  {
+   "file": "bridge-1.webp",
+   "w": 106,
+   "h": 560
+  }
+ ],
+ "track": [
+  {
+   "file": "track-1.webp",
+   "w": 900,
+   "h": 213
+  }
+ ],
+ "robots": [
+  {
+   "file": "robots-1.webp",
+   "w": 256,
+   "h": 300
+  },
+  {
+   "file": "robots-2.webp",
+   "w": 236,
+   "h": 300
+  },
+  {
+   "file": "robots-3.webp",
+   "w": 145,
+   "h": 300
+  },
+  {
+   "file": "robots-4.webp",
+   "w": 282,
+   "h": 300
+  },
+  {
+   "file": "robots-5.webp",
+   "w": 291,
+   "h": 300
+  },
+  {
+   "file": "robots-6.webp",
+   "w": 266,
+   "h": 300
+  }
+ ],
+ "marks": [
+  {
+   "file": "marks-1.webp",
+   "w": 160,
+   "h": 130
+  },
+  {
+   "file": "marks-2.webp",
+   "w": 133,
+   "h": 160
+  },
+  {
+   "file": "marks-3.webp",
+   "w": 160,
+   "h": 137
+  },
+  {
+   "file": "marks-4.webp",
+   "w": 160,
+   "h": 62
+  },
+  {
+   "file": "marks-5.webp",
+   "w": 160,
+   "h": 62
+  }
+ ],
+ "ground": [
+  {
+   "file": "ground.webp",
+   "w": 1100,
+   "h": 733
+  }
+ ]
+}
