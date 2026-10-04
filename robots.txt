@@ -1,0 +1,6 @@
+---
+layout: null
+---
+# Every crawler and AI agent is welcome to read everything here
+User-agent: *
+Allow: /

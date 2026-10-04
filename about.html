@@ -1,0 +1,19 @@
+---
+title: About
+permalink: /about/
+---
+<main class="wrap about-page">
+<div class="sitebar"><a href="{{ '/' | relative_url }}">{{ site.author }}</a></div>
+<h1>About</h1>
+<picture class="about-photo">
+  <source media="(min-width:720px)" srcset="{{ '/assets/img/zach-800.jpg' | relative_url }} 800w, {{ '/assets/img/zach.jpg' | relative_url }} 1568w" sizes="640px" width="1568" height="1568">
+  <img src="{{ '/assets/img/zach-crop.jpg' | relative_url }}" width="400" height="400" alt="Zach Landes standing in front of ruins at Machu Picchu">
+</picture>
+<p class="lede">{{ site.description | smartify }}</p>
+<ul class="links">
+  <li><a href="{{ '/' | relative_url }}">Home</a></li>
+  <li><a href="{{ site.linkedin }}">LinkedIn</a></li>
+  <li><a href="{{ '/feed.xml' | relative_url }}">RSS</a></li>
+  <li>{% include email-link.html %}</li>
+</ul>
+</main>

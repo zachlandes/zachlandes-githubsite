@@ -1,0 +1,16 @@
+---
+layout: null
+---
+# {{ site.title }}
+
+> {{ site.description }}
+{% if site.posts.size > 0 %}
+## Posts
+{% for post in site.posts %}
+- [{{ post.title }}]({{ post.url | absolute_url }}){% if post.description %}: {{ post.description | strip_html | normalize_whitespace }}{% endif %}
+{%- endfor %}
+{% endif %}
+## Pages
+
+- [About]({{ '/about/' | absolute_url }})
+- [Feed]({{ '/feed.xml' | absolute_url }}): every listed post, in Atom

@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="{{ site.lang }}">
+<head>
+{% include head.html %}
+</head>
+<body>
+{{ content }}
+<script>
+document.querySelectorAll('a.mail').forEach(a=>{const m=a.dataset.u+'@'+a.dataset.d+'.'+a.dataset.t;a.href='mailto:'+m;a.title=m});
+</script>
+</body>
+</html>
