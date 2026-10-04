@@ -6,6 +6,7 @@ The illustrative post titles on the home page are not here either: the site laun
 
 Zachary's rewrites, from the Deliver copy review.
 An empty `Rewrite` cell means he kept the line as it is.
+The About bio was later replaced with a four-paragraph bio he approved, which lives in `_includes/about-bio.md`.
 
 ## Home
 
