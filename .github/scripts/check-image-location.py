@@ -6,6 +6,7 @@ import os
 import re
 import struct
 import sys
+import zlib
 
 EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
 SKIP_DIRS = {".git", "_site", ".jekyll-cache", "vendor", "node_modules"}
@@ -57,8 +58,33 @@ def png_blocks(data):
         if kind == b"eXIf":
             yield "exif", payload
         elif kind in (b"iTXt", b"tEXt", b"zTXt"):
-            yield "xmp", payload
+            yield from png_text_blocks(*png_text(kind, payload))
         i += 12 + length
+
+
+def png_text(kind, payload):
+    keyword, _, rest = payload.partition(b"\0")
+    if kind == b"tEXt":
+        return keyword, rest
+    if kind == b"zTXt":
+        return keyword, zlib.decompress(rest[1:])
+    # iTXt: compression flag and method, then language tag and translated keyword
+    compressed, rest = rest[0], rest[2:]
+    _, _, rest = rest.partition(b"\0")
+    _, _, text = rest.partition(b"\0")
+    return keyword, zlib.decompress(text) if compressed else text
+
+
+def png_text_blocks(keyword, text):
+    # ImageMagick stores whole profiles as hex: a type line, a length line, then the digits
+    if not keyword.startswith(b"Raw profile type "):
+        yield "xmp", text
+        return
+    profile = bytes.fromhex("".join(text.decode("ascii").split()[2:]))
+    if keyword[17:].lower() in (b"exif", b"app1"):
+        yield "exif", profile[6:] if profile.startswith(b"Exif\0\0") else profile
+    else:
+        yield "xmp", profile
 
 
 def webp_blocks(data):
