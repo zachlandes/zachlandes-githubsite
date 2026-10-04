@@ -75,6 +75,9 @@ h1,h2{font-weight:500;letter-spacing:-.012em}
 .about-page h1{grid-row:2;grid-column:1;align-self:center;font-size:46px;line-height:1;margin:var(--s48) 0 var(--s24);font-weight:400}
 .about-page>p{margin:0 0 var(--flow)}
 .about-page .lede{grid-row:3;font-size:19px;line-height:1.42;color:var(--ink)}
+.about-page .lede{margin:0 0 var(--flow)}
+.about-page .lede>*{margin:0}
+.about-page .lede>*+*{margin-top:var(--flow)}
 .about-page .links{margin-top:var(--flow)}
 .about-photo{grid-row:2;grid-column:2;align-self:center;margin:var(--s48) 0 var(--s24)}
 .about-photo img{display:block;width:88px;height:88px;border-radius:50%;object-fit:cover;background:var(--surface)}

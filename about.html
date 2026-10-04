@@ -9,7 +9,9 @@ permalink: /about/
   <source media="(min-width:720px)" srcset="{{ '/assets/img/zach-800.jpg' | relative_url }} 800w, {{ '/assets/img/zach.jpg' | relative_url }} 1568w" sizes="640px" width="1568" height="1568">
   <img src="{{ '/assets/img/zach-crop.jpg' | relative_url }}" width="400" height="400" alt="Zach Landes standing in front of ruins at Machu Picchu">
 </picture>
-<p class="lede">{{ site.description | smartify }}</p>
+{%- comment -%} The bio is _includes/about-bio.md, in Markdown; it can grow to several paragraphs {%- endcomment -%}
+{% capture bio %}{% include about-bio.md %}{% endcapture %}
+<div class="lede">{{ bio | markdownify }}</div>
 <ul class="links">
   <li><a href="{{ '/' | relative_url }}">Home</a></li>
   <li><a href="{{ site.linkedin }}">LinkedIn</a></li>
