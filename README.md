@@ -32,5 +32,7 @@ Every pull request is also built by `.github/workflows/pages-build.yml`, so a br
 - `feed.xml` and `llms.txt` are generated from the posts; `robots.txt` allows every crawler and AI agent.
 - The email link is assembled by a script as the page loads, so the address never appears in the page source.
 - `assets/fonts` holds Newsreader under the SIL Open Font License.
+- Pull requests fail if an image carries GPS location data, which phone photos record; `.github/scripts/check-image-location.py` names the file and the `exiftool` command that removes it.
+- `favicon.ico` and `apple-touch-icon.png` are the Z monogram, set in Newsreader with the accent underline the links use.
 - The About page's bio is `_includes/about-bio.md`, in Markdown; the short about on the home page is `description` in `_config.yml`.
 - `design/` records how the design was made; it isn't part of the built site.
