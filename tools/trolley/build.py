@@ -193,7 +193,13 @@ class Post:
         while i < len(kids):
             n = kids[i]
             c = n.cls
-            if n.tag in ("h1",) or "st-byline" in c or "st-try" in c or n.tag == "noscript":
+            if "st-try" in c:
+                # His play button's words label the send button of the scene that follows; the appendix's
+                # other buttons only set the scene, which its full controls do
+                plays = [x for x in n.kids() if x.tag == "button" and "data-play" in x.attrs]
+                if plays:
+                    self.play = html.escape(re.sub(r"\s+", " ", one(n, lambda x: x in plays, "play button").text()).strip().lstrip("▶").strip(), quote=False)
+            elif n.tag in ("h1",) or "st-byline" in c or n.tag == "noscript":
                 pass
             elif n.tag == "h2" and "st-sub" in c:
                 # His two-line appendix headings ("Appendix A:", then its title) stay one heading on two lines
@@ -280,7 +286,10 @@ class Post:
 
     def diorama(self, slot):
         kind = slot.attrs.get("data-diorama-slot")
-        self.add(dio_figure(kind, slot.attrs.get("data-preview") or START, self.data))
+        play, self.play = getattr(self, "play", None), None
+        if kind in ("classic", "flip"):
+            assert play, f"the {kind} scene has its play button above it"
+        self.add(dio_figure(kind, slot.attrs.get("data-preview") or START, self.data, play))
 
 
 START = None  # The page's opening preset, read from the rendered page
@@ -317,7 +326,7 @@ ACTIONS = """  <div class="dio-actions">
   </div>"""
 
 
-def dio_figure(kind, preset, data):
+def dio_figure(kind, preset, data, play=None):
     scen, model, n, *rest = preset.split("|")
     name = {"home": "diorama", "classic": "diorama-server", "flip": "diorama-flip", "end": "diorama-all"}[kind]
     titles = {"home": "Trolley diorama", "classic": "Trolley diorama: Jev, with its own server on the side track",
@@ -325,7 +334,8 @@ def dio_figure(kind, preset, data):
     frame = f'  <iframe class="dio-frame" name="{name}" src="{ASSETS}/pane.html" title="{titles[kind]}"{"" if kind == "home" else " loading=\"lazy\""}></iframe>'
     if kind in ("classic", "flip"):
         cap = f"  <figcaption>{PRESET_CAPTIONS[kind]}</figcaption>"
-        return f'<figure class="dio" data-preset="{preset}">\n{QUESTION}\n{frame}\n{ACTIONS}\n{cap}\n</figure>'
+        actions = ACTIONS.replace(">Send the trolley<", f">{play}<")
+        return f'<figure class="dio" data-preset="{preset}">\n{QUESTION}\n{frame}\n{actions}\n{cap}\n</figure>'
     labels = {s["id"]: s["label"] for s in data["scenarios"]}
     setups = OPENING_SETUPS if kind == "home" else [s for s in SETUP_ORDER if s in labels]
     assert all(s in labels for s in setups), setups
