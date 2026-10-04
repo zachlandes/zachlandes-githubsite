@@ -1,0 +1,52 @@
+title: Zach Landes
+description: Product engineer, consultant, and published economist in San Francisco. I write about software development, my experiments in AI and social science, and whatever else I'm excited about.
+url: https://zachlandes.com
+# Set, even empty, so the build never asks the GitHub API for it
+baseurl: ""
+author: Zach Landes
+lang: en
+timezone: America/Los_Angeles
+linkedin: https://linkedin.com/in/zachlandes
+
+# No theme: the layouts here are the whole design, so Pages' default theme stylesheet stays out
+theme: null
+
+permalink: /:title/
+
+# Posts in _posts are listed on the home page, in the feed and in llms.txt.
+# Unlisted posts live in _unlisted: they get the same layout and a working address, but appear nowhere and ask
+# search engines not to index them. Moving a file from _unlisted to _posts (with a date in its name) publishes it.
+collections:
+  unlisted:
+    output: true
+    permalink: /:name/
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+      image: /assets/og/zach-landes.png
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: unlisted
+    values:
+      layout: post
+
+plugins:
+  - jekyll-feed
+
+feed:
+  path: feed.xml
+
+exclude:
+  - design/
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor/

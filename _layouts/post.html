@@ -1,0 +1,42 @@
+---
+layout: default
+---
+<div class="post-grid">
+<header class="post-head">
+  <div class="masthead"><a href="{{ '/' | relative_url }}" title="Home">{{ site.author }}</a><time class="dateline" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time></div>
+  <h1>{{ page.title }}</h1>
+  {%- if page.description %}
+  <p class="dek">{{ page.description }}</p>
+  {%- endif %}
+</header>
+<aside class="toc" aria-label="Contents" hidden><nav><ol></ol></nav></aside>
+<article class="post-grid" style="grid-column:full">
+{{ content }}
+<footer class="post-end">
+  <p class="who"><a href="{{ '/' | relative_url }}">{{ site.author }}</a></p>
+  <ul class="links">
+    <li><a href="{{ '/' | relative_url }}">Home</a></li>
+    <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+    <li><a href="{{ '/feed.xml' | relative_url }}">RSS</a></li>
+  </ul>
+</footer>
+</article>
+</div>
+<script>
+// Contents for the left margin, built from the post's own section headings; it shows only on wide screens and only for posts with at least two sections
+(()=>{
+  const heads=[...document.querySelectorAll('article.post-grid>h2[id],article.post-grid>h3[id]')];
+  const toc=document.querySelector('.toc');
+  if(heads.filter(h=>h.tagName==='H2').length<2)return;
+  toc.querySelector('ol').innerHTML=heads.map(h=>`<li${h.tagName==='H3'?' class="sub"':''}><a href="#${h.id}"></a></li>`).join('');
+  toc.querySelectorAll('a').forEach((a,i)=>{a.textContent=heads[i].textContent});
+  toc.hidden=false;
+  if(!('IntersectionObserver' in window))return;
+  const links=[...toc.querySelectorAll('a')];
+  const io=new IntersectionObserver(()=>{
+    let cur=null;for(const h of heads)if(h.getBoundingClientRect().top<innerHeight*.35)cur=h;
+    links.forEach((a,i)=>a.classList.toggle('on',heads[i]===cur));
+  },{rootMargin:'0px 0px -60% 0px',threshold:[0,1]});
+  heads.forEach(h=>io.observe(h));
+})();
+</script>

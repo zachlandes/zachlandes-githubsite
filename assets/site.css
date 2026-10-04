@@ -1,0 +1,258 @@
+/* Newsreader, served from this site (SIL OFL 1.1, see fonts/OFL.txt): one variable file per style and subset */
+@font-face{font-family:"Newsreader";font-style:normal;font-weight:400 600;font-display:swap;src:url(fonts/newsreader-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Newsreader";font-style:normal;font-weight:400 600;font-display:swap;src:url(fonts/newsreader-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Newsreader";font-style:italic;font-weight:400 500;font-display:swap;src:url(fonts/newsreader-italic-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Newsreader";font-style:italic;font-weight:400 500;font-display:swap;src:url(fonts/newsreader-italic-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+:root{
+  --bg:#fbf9f4; --ink:#1d2230; --body:#2b3140; --muted:#5f6777;
+  --panel:#fffff8; --surface:#f1ede2; --rule:#e3ddcc; --accent:#c2412d; --mint:#f8e2da; --data:rgb(194,65,45);
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --prose:640px; --hang:72px; --margin:220px; --gutter:64px;
+  /* One vertical scale for every page; --flow is the gap between running blocks, --after-head between a heading and its text */
+  --s4:4px; --s8:8px; --s12:12px; --s16:16px; --s24:24px; --s32:32px; --s48:48px; --s64:64px; --s96:96px;
+  --flow:var(--s16); --after-head:var(--s8); --fig-top:var(--s24); --fig-after:var(--s32); --h2-top:var(--s48); --h3-top:var(--s32);
+  color-scheme:light dark;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#131415; --ink:#eef0f5; --body:#d4d8e1; --muted:#a3aabb;
+    --panel:#151515; --surface:#1d1e21; --rule:#2c2d30; --accent:#ff8a6f; --mint:rgba(255,138,111,.13); --data:rgb(255,138,111);
+  }
+}
+.sv-dark{display:none}
+@media (prefers-color-scheme:dark){.sv-light{display:none}.sv-dark{display:block}}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;hanging-punctuation:first allow-end}
+body{margin:0;background:var(--bg);color:var(--body);font:400 17px/1.55 var(--serif);font-optical-sizing:auto;
+  overflow-wrap:break-word;-webkit-font-smoothing:antialiased}
+::selection{background:var(--mint);color:var(--ink)}
+/* Links read in the text colour; the accent sits in the underline and takes the word on hover */
+a{color:inherit;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:.2em}
+a:hover{color:var(--accent)}
+/* 2px is two device pixels at 1x, enough to show the orange; on a 2x screen 1.5px stays light */
+@media (min-resolution:2dppx){a{text-decoration-thickness:1.5px}}
+a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+svg{display:block;width:100%;height:auto}
+figure{margin-inline:0}
+.wrap{width:min(var(--prose),100% - 32px);margin-inline:auto}
+h1,h2,h3{font-family:var(--serif);color:var(--ink);text-wrap:balance}
+/* One family throughout: Newsreader's optical sizes give the display cut at heading sizes and the text cut in the body */
+h1,h2{font-weight:500;letter-spacing:-.012em}
+
+/* Metadata and navigation: spaced capitals in the body serif; mono is kept for code only */
+.caps,.masthead,.sitebar{font:500 13px/1.4 var(--serif);letter-spacing:.07em;text-transform:uppercase;font-variant-numeric:lining-nums tabular-nums}
+.sitebar{padding:var(--s24) 0 0}
+/* Navigation shares the masthead's spaced capitals wherever it appears */
+.links{display:flex;flex-wrap:wrap;padding:0;margin:0;list-style:none;font:500 13px/1.4 var(--serif);letter-spacing:.07em;text-transform:uppercase}
+.links li+li::before{content:"\00b7";color:var(--muted);opacity:.7;margin:0 .45em}
+.links a{color:var(--ink);text-decoration:none}
+.links a:hover{color:var(--accent)}
+.masthead,.sitebar{display:flex;align-items:center;gap:10px;margin:0}
+.masthead a,.sitebar a{color:var(--ink);text-decoration:none}
+.masthead a:hover,.sitebar a:hover{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.25em}
+.masthead .links a:hover{text-decoration:none}
+.masthead .dateline{margin-left:auto}
+
+/* Home */
+.home-head{padding:var(--s24) 0 0}
+.home-head .masthead{margin:0 0 var(--s32)}
+/* On a phone the name fills the measure; WM is its width-to-size ratio */
+.wordmark{--wm:5.37;font-size:min(82px,(100vw - 32px) / var(--wm));font-weight:400;line-height:1;letter-spacing:-.022em;margin:0 0 var(--s12);white-space:nowrap}
+.about-short{font-size:17px;line-height:1.5;margin:0;color:var(--ink);text-wrap:balance}
+/* Ledger: each post is its date, title and one-line description */
+.posts{list-style:none;margin:var(--s48) 0 var(--s64);padding:0}
+.posts li{position:relative;margin:0 0 var(--s24)}
+.posts time{display:block;font:400 14px/1.3 var(--serif);color:var(--muted);margin:0 0 var(--s4);font-variant-numeric:lining-nums tabular-nums}
+.posts a{display:block;font:500 22px/1.2 var(--serif);letter-spacing:-.008em;color:var(--ink);text-decoration:none;margin:0 0 var(--s4);text-wrap:pretty}
+.posts a:hover{color:var(--accent)}
+.posts p{margin:0;font-size:15px;line-height:1.45;color:var(--muted)}
+
+/* About */
+/* One photo, art-directed: a close round crop beside the heading on a phone, the whole picture under the lede on desktop */
+.about-page{padding:0 0 var(--s64);display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:20px}
+.about-page>*{grid-column:1/-1}
+.about-page h1{grid-row:2;grid-column:1;align-self:center;font-size:46px;line-height:1;margin:var(--s48) 0 var(--s24);font-weight:400}
+.about-page>p{margin:0 0 var(--flow)}
+.about-page .lede{grid-row:3;font-size:19px;line-height:1.42;color:var(--ink)}
+.about-page .lede{margin:0 0 var(--flow)}
+.about-page .lede>*{margin:0}
+.about-page .lede>*+*{margin-top:var(--flow)}
+.about-page .links{margin-top:var(--flow)}
+.about-photo{grid-row:2;grid-column:2;align-self:center;margin:var(--s48) 0 var(--s24)}
+.about-photo img{display:block;width:88px;height:88px;border-radius:50%;object-fit:cover;background:var(--surface)}
+
+/* Post */
+.post-grid{display:grid;grid-template-columns:[full-start] minmax(16px,1fr) [wide-start] minmax(0,var(--hang)) [prose-start] min(var(--prose),100% - 32px) [prose-end] minmax(0,var(--hang)) [wide-end] minmax(16px,1fr) [full-end]}
+.post-grid>*{grid-column:prose}
+/* Title, deck and body share one measure */
+.post-head{position:relative;padding:var(--s24) 0 var(--s32)}
+.post-head h1{font-size:33px;line-height:1.08;margin:var(--s32) 0 var(--s8)}
+/* The deck is the title's second voice: display-cut italic, set close under it and tighter than the body */
+.dek{font:italic 400 18px/1.3 var(--serif);font-variation-settings:"opsz" 48;letter-spacing:-.005em;color:var(--muted);margin:0;text-wrap:pretty}
+.dateline{font:italic 400 15px/1 var(--serif);letter-spacing:0;text-transform:none;color:var(--muted);white-space:nowrap}
+/* Article blocks sit in a grid, where margins never collapse, so each block carries only the space above it */
+article>*{margin-top:0;margin-bottom:0}
+article>*+*{margin-top:var(--flow)}
+article>h2{margin-top:var(--h2-top)}
+article>h3{margin-top:var(--h3-top)}
+article>h2+*,article>h3+*{margin-top:var(--after-head)}
+article>figure,article>blockquote,article>details{margin-top:var(--fig-top)}
+article>figure+*,article>blockquote+*,article>details+*{margin-top:var(--fig-after)}
+article>p{text-wrap:pretty}
+article h2{font-size:25px;line-height:1.2;scroll-margin-top:20px}
+article h3{font-size:18px;font-weight:400;font-style:italic;font-variation-settings:"opsz" 72;line-height:1.3;scroll-margin-top:20px}
+article ul,article ol{padding-left:1.4rem}
+article li{margin:.25em 0}
+article li::marker{color:var(--muted)}
+code{font-family:var(--mono);font-size:.82em;background:var(--surface);padding:.08em .3em;border-radius:3px;color:var(--ink)}
+/* Set-out quote is Zachary's decision, not open to redesign */
+blockquote{margin-inline:0 8px;padding:18px 20px;background:var(--panel);border:2px solid var(--accent);box-shadow:8px 8px 0 var(--accent);font-size:17px;line-height:1.5;color:var(--ink)}
+blockquote p{margin:0}
+.pivot{font-size:19px;line-height:1.35;color:var(--ink)}
+.pivot strong{font-weight:600}
+/* Figures sit on the page itself: no frame, no tint */
+.wide{grid-column:full}
+figcaption{font-size:15px;line-height:1.5;color:var(--muted);padding:var(--s12) 16px 0}
+.scroller{overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:thin;background:linear-gradient(to right,var(--bg) 30%,transparent),linear-gradient(to left,var(--bg) 30%,transparent) 100% 0,radial-gradient(farthest-side at 0 50%,rgba(0,0,0,.14),transparent),radial-gradient(farthest-side at 100% 50%,rgba(0,0,0,.14),transparent) 100% 0;background-repeat:no-repeat;background-size:40px 100%,40px 100%,12px 100%,12px 100%;background-attachment:local,local,scroll,scroll}
+/* Interactive figures: a framed pane whose height follows the pane's own reports, and site-styled controls that drive it */
+.dio-frame{display:block;width:100%;height:440px;border:0;background:transparent}
+.dio-controls{display:flex;flex-direction:column;gap:var(--s16);margin:0 0 var(--s24)}
+.dio-row{display:flex;flex-direction:column;gap:var(--s8)}
+.dio-lab{font:500 13px/1.4 var(--serif);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pills button,.dio select{font:400 15px/1.2 var(--serif);color:var(--ink);background:transparent;border:1px solid var(--rule);cursor:pointer}
+.pills button{padding:7px 12px;min-height:36px;border-radius:999px}
+.pills button:hover{border-color:var(--muted)}
+.pills button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.dio select{align-self:flex-start;padding:7px 30px 7px 12px;min-height:36px;border-radius:4px;appearance:none;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23888' stroke-width='1.4'/%3E%3C/svg%3E") no-repeat right 12px center}
+.dio-actions{display:flex;gap:var(--s12);margin:var(--s16) 0 0}
+.dio-actions button{font:500 16px/1 var(--serif);padding:.7rem 1.1rem;min-height:44px;border-radius:4px;cursor:pointer;border:1px solid var(--rule);background:transparent;color:var(--ink)}
+.dio figcaption{padding-inline:0}
+.dio-actions .go{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+/* An edge-to-edge figure on phones insets its controls to line up with the text, like its caption */
+.wide .dio-actions{padding-inline:16px}
+.dio-actions button:disabled{opacity:.4;cursor:default}
+.multiples{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s12) var(--s8);padding:0 12px}
+details summary{cursor:pointer;list-style:none;padding:var(--s16) 0;font:500 20px/1.3 var(--serif);font-variation-settings:"opsz" 72;color:var(--ink);display:flex;gap:.7rem;align-items:baseline}
+details summary::-webkit-details-marker{display:none}
+/* A plain disclosure triangle in the text colour, turning down when open */
+details summary::before{content:"";flex:none;align-self:center;width:0;height:0;border-style:solid;border-width:5px 0 5px 8px;border-color:transparent transparent transparent currentColor;transition:transform .15s}
+details[open] summary::before{transform:rotate(90deg)}
+@media (prefers-reduced-motion:reduce){details summary::before{transition:none}}
+.details-body{padding-bottom:var(--s24)}
+.details-body>*{margin:0}
+.details-body>*+*{margin-top:var(--flow)}
+.table-box{margin-inline:-16px}
+table{border-collapse:collapse;font:400 15px/1.35 var(--serif);font-variant-numeric:lining-nums tabular-nums;min-width:640px;width:100%}
+th,td{padding:10px 12px;white-space:nowrap;text-align:right;border-bottom:1px solid var(--rule);vertical-align:bottom}
+thead th{border-bottom-color:var(--muted)}
+th{white-space:normal;min-width:7.5em;font-weight:400;color:var(--muted);font-size:14px;line-height:1.35}
+th:first-child,td:first-child{text-align:left;white-space:nowrap;position:sticky;left:0;background:var(--bg);font-weight:500;color:var(--ink);padding-left:16px}
+tr:last-child td{border-bottom:0}
+/* Sidenote: a numbered footnote under its paragraph, hung in the margin on wide screens */
+.ref{font-size:.68em;line-height:0;vertical-align:.5em;font-variant-numeric:lining-nums}
+.ref a{color:var(--accent);text-decoration:none}
+.note{display:block;font-size:16px;line-height:1.5;color:var(--body);margin:var(--s8) 0 0;padding-left:16px;text-indent:-16px}
+.sidenote{display:none}
+.note .n,.sidenote .n{display:inline-block;width:16px;text-indent:0;color:var(--accent);font-size:.8em;vertical-align:.25em;font-variant-numeric:lining-nums}
+.has-note>p{margin:0}
+/* The ending is one quiet line under one rule: the name in the masthead's capitals, then the links */
+.post-end{display:flex;flex-wrap:wrap;align-items:baseline;margin-bottom:var(--s96);padding-top:var(--s16);border-top:1px solid var(--rule)}
+.post-end .who{margin:0;font:500 13px/1.4 var(--serif);letter-spacing:.07em;text-transform:uppercase}
+.post-end .who::after{content:"\00b7";color:var(--muted);opacity:.7;margin:0 .45em}
+.post-end .who a{color:var(--ink);text-decoration:none}
+.post-end .who a:hover{color:var(--accent)}
+.toc{display:none}
+
+@media (min-width:720px){
+  body{font-size:21px}
+  :root{--flow:var(--s24);--after-head:var(--s16);--fig-top:var(--s32);--fig-after:var(--s48);--h2-top:var(--s64);--h3-top:var(--s48)}
+  .home-head .masthead{margin-bottom:var(--s48)}
+  .wordmark{margin-bottom:var(--s16)}
+  /* The bio runs the full measure at a size that answers the name rather than trailing it */
+  .about-short{font-size:23px;line-height:1.42}
+  .posts{margin:var(--s64) 0 var(--s96)}
+  .posts li{margin-bottom:var(--s32)}
+  .posts time{font-size:16px}
+  .posts a{font-size:28px}
+  .posts p{font-size:17px}
+  .about-page{padding-bottom:var(--s96)}
+  .about-page h1{grid-column:1/-1;font-size:64px}
+  .about-page .lede{font-size:22px}
+  /* The end links follow the photo directly, so their own top space is the whole gap */
+  .about-photo{grid-row:4;grid-column:1/-1;margin:var(--s24) 0 var(--s24)}
+  .post-head{padding-bottom:var(--s48)}
+  .post-head h1{font-size:58px;line-height:1.04;margin:var(--s48) 0 var(--s12)}
+  .dek{font-size:22px;line-height:1.25;max-width:30em}
+  .dateline{font-size:17px}
+  article h2{font-size:33px}
+  article h3{font-size:23px}
+  blockquote{font-size:20px}
+  .pivot{font-size:1.3rem}
+  figcaption{font-size:16px}
+  .about-photo img{width:100%;height:auto;border-radius:4px}
+  .wide{grid-column:prose}
+  figcaption{padding:var(--s12) 0 0}
+  .wide .dio-actions{padding-inline:0}
+  /* Labels in a column of their own, so every row of choices starts on one line */
+  .dio-row{display:grid;grid-template-columns:168px 1fr;align-items:baseline;column-gap:16px}
+  .dio select{justify-self:start}
+  .dio-lab{padding-top:2px}
+  .multiples{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s16) var(--s24);padding:0}
+  .table-box{margin-inline:0}
+  th:first-child,td:first-child{padding-left:0}
+  td:last-child,th:last-child{padding-right:0}
+}
+@media (min-width:1200px){:root{--hang:90px}}
+/* Dates hang in the left margin column, the same column the post's contents use; 9px puts each on its title's baseline */
+@media (min-width:1240px){
+  .posts time{position:absolute;right:calc(100% + var(--gutter));top:9px;margin:0;white-space:nowrap}
+}
+@media (min-width:1360px){
+  .toc{display:block;grid-column:full-start/prose-start;grid-row:2;justify-self:end;width:var(--margin);margin-right:var(--gutter);position:relative}
+  /* The 5px puts the first entry on the body text's first baseline at rest; once stuck, the list starts at the page's 24px top margin */
+  .toc nav{position:sticky;top:19px;padding-top:5px}
+  .toc ol{list-style:none;margin:0;padding:0}
+  .toc li{margin:0 0 10px;font:400 16px/1.45 var(--serif);text-wrap:balance}
+  .toc li.sub{padding-left:1em}
+  .toc a{color:var(--muted);text-decoration:none}
+  .toc a:hover,.toc a.on{color:var(--accent)}
+  /* Sidenote floats out of its line into the right margin, mirroring the contents column; the 5px top drops its first baseline onto the reference line's */
+  .note{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+  .sidenote{display:block;float:right;clear:right;width:var(--margin);margin:5px calc(-1 * (var(--margin) + var(--gutter))) 0 0;font-size:16px;line-height:1.45;color:var(--body);padding-left:16px;text-indent:-16px}
+  /* The date sits on the masthead's line, in the right margin column, declaring that column from the top */
+  .masthead{position:relative}
+  /* Its right edge is the margin column's, shared with the sidenotes */
+  .masthead .dateline{position:absolute;right:calc(-1 * (var(--gutter) + var(--margin)));top:50%;transform:translateY(-50%)}
+  article.post-grid{grid-row:2}
+}
+
+/* The type scale: one family, five sizes per screen width */
+:root{--t-small:14px;--t-body:17px;--t-m:20px;--t-l:25px;--t-xl:36px}
+@media (min-width:720px){:root{--t-small:15px;--t-body:21px;--t-m:25px;--t-l:33px;--t-xl:58px}}
+body{font-size:var(--t-body)}
+/* Small: captions, notes, contents, dates, labels, tables and the spaced capitals */
+.caps,.masthead,.sitebar,.links,.dio-lab,.post-end .who{font-size:var(--t-small);letter-spacing:.05em}
+.dateline{font-size:var(--t-small);font-style:normal}
+.posts time,.posts p,figcaption,.note,.sidenote,.toc li,table,th,.pills button,.dio select,.dio-actions button{font-size:var(--t-small)}
+.dio-actions button,th:first-child,td:first-child{font-weight:400}
+.ref,.note .n,.sidenote .n{font-size:var(--t-small)}
+.ref{vertical-align:.45em;line-height:0}
+.note .n,.sidenote .n{vertical-align:0}
+/* Body */
+.about-short,.about-page .lede,blockquote,.pivot{font-size:var(--t-body)}
+.pivot strong{font-weight:500}
+/* Display: h3, list titles, deck and summary share one size; h2 one more; the name and titles the largest */
+article h3{font-size:var(--t-m);font-style:normal;font-weight:500;font-variation-settings:normal}
+.posts a,details summary{font-size:var(--t-m);letter-spacing:0;font-variation-settings:normal}
+.dek{font-size:var(--t-m);letter-spacing:0;font-variation-settings:normal}
+article h2{font-size:var(--t-l)}
+.wordmark,.post-head h1,.about-page h1{font-size:var(--t-xl);font-weight:500;letter-spacing:0}
+/* The home name keeps its larger size, Zachary's pick at the type review */
+.wordmark{font-size:min(82px,(100vw - 32px) / var(--wm));font-weight:400;letter-spacing:-.022em}
+h1,h2{letter-spacing:0}
+/* Baseline offsets for these sizes: date on its title's line, contents and sidenote on the body's */
+@media (min-width:1240px){.posts time{top:7px}}
+@media (min-width:1360px){.toc nav{top:18px;padding-top:6px}.sidenote{margin-top:6px}}

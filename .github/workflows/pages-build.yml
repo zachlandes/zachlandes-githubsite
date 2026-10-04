@@ -1,0 +1,21 @@
+name: Pages build
+
+# Builds every pull request with the same action and gems GitHub Pages uses, so a broken build shows on the PR.
+# It only builds: nothing is deployed and no Pages settings change.
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: No location data in images
+        run: python3 .github/scripts/check-image-location.py
+      - uses: actions/jekyll-build-pages@44a6e6beabd48582f863aeeb6cb2151cc1716697 # v1.0.13
+        with:
+          source: ./
+          destination: ./_site
