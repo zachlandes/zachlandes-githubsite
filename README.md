@@ -29,7 +29,7 @@ Every pull request is also built by `.github/workflows/pages-build.yml`, so a br
 
 ## What else is here
 
-- `feed.xml`, `robots.txt` and `llms.txt` are generated from the posts; every crawler and AI agent is allowed.
+- `feed.xml` and `llms.txt` are generated from the posts; `robots.txt` allows every crawler and AI agent.
 - The email link is assembled by a script as the page loads, so the address never appears in the page source.
 - `assets/fonts` holds Newsreader under the SIL Open Font License.
 - The About page's bio is `_includes/about-bio.md`, in Markdown; the short about on the home page is `description` in `_config.yml`.
