@@ -76,6 +76,10 @@ def png_text(kind, payload):
 
 
 def png_text_blocks(keyword, text):
+    # ImageMagick also writes each EXIF field as its own chunk, keyed by the field name
+    if keyword.lower().startswith(b"exif:gps"):
+        yield "gps", keyword
+        return
     # ImageMagick stores whole profiles as hex: a type line, a length line, then the digits
     if not keyword.startswith(b"Raw profile type "):
         yield "xmp", text
@@ -111,6 +115,8 @@ def has_location(path):
     else:
         return False
     for kind, payload in blocks:
+        if kind == "gps":
+            return True
         if kind == "exif" and exif_has_gps(payload):
             return True
         if kind == "xmp" and XMP_GPS.search(payload):
