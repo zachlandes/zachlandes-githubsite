@@ -12,4 +12,4 @@ I did a master's in economic history at the London School of Economics, and did 
 I started an economics PhD at UCLA Anderson before leaving the program to go back to building products.
 For six years I was also president of the board of Mayview Community Health Center, a nonprofit serving more than 9,000 medically underserved patients a year.
 
-Here I write about what I'm learning from building with AI, starting with how small decision models behave when you hand them a trolley problem.
+Here I write about what I'm building, what I'm learning, and whatever piques my curiosity.
