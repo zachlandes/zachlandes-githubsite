@@ -113,3 +113,8 @@ Added to the requirements before round 1: the post's figures and copy are the au
 ### Define gate, after round 9
 
 - Captain: "polish starting with the fix list". Define closed at round 9 (lead critic 7, second critic 8, not converged); Deliver opens with the five-item fix list from the board.
+
+## 2026-10-03 Deliver
+
+- Fix list applied (chart developer tick, 13px small caps, 2px underline at 1x, one spacing scale, smaller deck).
+- Cut list: polish reviewer (fresh Fable, blind dir, 13 states) merged with my pass against the requirements into 12 items, each with a recommendation; points about the article's own figures kept apart as notes for the article work, since the site design does not own them. The phone chart overflow (top three rows off-screen) is being fixed as a defect, not offered as a cut.
