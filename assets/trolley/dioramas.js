@@ -104,11 +104,24 @@
     const q=f.querySelector('.dio-q'),b=q&&q.querySelector('.dio-q-more');
     if(b){
       const t=q.querySelector('.dio-q-text'),open=q.classList.contains('open'),n=wordsOf(t.dataset.full||'').length;
-      q.classList.remove('open');q.classList.add('long');showWords(f,t,0,n,n);
-      const long=t.scrollHeight>t.clientHeight+2;
-      q.classList.toggle('long',long);q.classList.toggle('open',open&&long);
-      if(long&&!open)fold(f,t);else srCopy(f,t,true);
-      b.hidden=!long;b.textContent=open&&long?'Show less':'Show the full text';b.setAttribute('aria-expanded',open&&long);
+      const apply=()=>{
+        q.classList.remove('open');q.classList.add('long');showWords(f,t,0,n,n);
+        const long=t.scrollHeight>t.clientHeight+2;
+        q.classList.toggle('long',long);q.classList.toggle('open',open&&long);
+        if(long&&!open)fold(f,t);else srCopy(f,t,true);
+        b.hidden=!long;b.textContent=open&&long?'Show less':'Show the full text';b.setAttribute('aria-expanded',open&&long);
+      };
+      q.style.removeProperty('--cap');apply();
+      // Where a long sidenote above pushes the prompt down (the post script's --drop), it folds sooner so it still ends
+      // with the scene's column instead of stretching the figure; taking it out of the grid for a moment measures that column
+      if(parseFloat(q.style.getPropertyValue('--drop'))&&!open){
+        q.style.position='absolute';
+        const limit=Math.max(...[...f.children].filter(c=>c!==q).map(c=>c.getBoundingClientRect().bottom));
+        q.style.position='';
+        const line=parseFloat(getComputedStyle(t).lineHeight),over=q.getBoundingClientRect().bottom-limit;
+        let c=Math.min(parseFloat(getComputedStyle(q).getPropertyValue('--cap')),Math.round(t.clientHeight/line)-Math.ceil(over/line));
+        if(over>1)for(c=Math.max(3,c);;c--){q.style.setProperty('--cap',c);apply();if(c<=3||q.getBoundingClientRect().bottom<=limit+1)break}
+      }
     }
     fit(f);
   };
@@ -147,6 +160,7 @@
     const next=w>=col-1?'':Math.floor(w)+'px';if(i.style.maxWidth!==next)i.style.maxWidth=next;
   };
   addEventListener('resize',()=>figs().forEach(cap));
+  document.addEventListener('margins',()=>figs().forEach(cap));
   addEventListener('message',e=>{
     const f=figs().find(x=>e.source===x.querySelector('iframe')?.contentWindow),d=e.data||{};
     if(!f)return;

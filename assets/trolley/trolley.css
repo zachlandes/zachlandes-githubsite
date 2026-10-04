@@ -160,7 +160,7 @@ table.human ul{margin:4px 0 0;padding-left:16px}
 .dio{display:grid;grid-template-columns:minmax(0,1fr) var(--margin);column-gap:var(--gutter);align-items:start;margin-right:calc(-1 * (var(--gutter) + var(--margin)))}
 .dio>*{grid-column:1}
 /* 5px drops the label's cap tops onto the scene's top edge, which the pane draws 8px into its frame */
-.dio>.dio-q{grid-column:2;grid-row:1/span 3;margin:5px 0 0}
+.dio>.dio-q{grid-column:2;grid-row:1/span 3;margin:calc(5px + var(--drop,0px)) 0 0}
 /* Beside the first figure the note stops short of the buttons; a preset's note may run its whole length */
 .dio:has(.dio-controls)>.dio-q{grid-row:2/span 3;--cap:21}
 .dio:has(.dio-controls)>.dio-q:has(.json){--cap:28}

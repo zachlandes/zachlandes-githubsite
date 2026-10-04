@@ -313,7 +313,7 @@ PRESET_CAPTIONS = {
     "flip": "The same choice, asked another way: a different wording, with the server described first.",
 }
 
-QUESTION = """  <div class="dio-q dio-row">
+QUESTION = """  <div class="dio-q dio-row" data-margin>
     <span class="dio-lab">What <span class="dio-q-who">Jev</span> was asked</span>
     <div>
       <blockquote class="dio-q-text"></blockquote>
