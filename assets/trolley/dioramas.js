@@ -102,7 +102,8 @@
   // A prompt longer than its cap folds to its first lines until the reader asks for the rest
   const cap=f=>{
     const q=f.querySelector('.dio-q'),b=q&&q.querySelector('.dio-q-more');
-    if(b){
+    // A pane that has not loaded yet has no prompt to fold; its first quote calls this again
+    if(b&&q.querySelector('.dio-q-text').dataset.full!==undefined){
       const t=q.querySelector('.dio-q-text'),open=q.classList.contains('open'),n=wordsOf(t.dataset.full||'').length;
       const apply=()=>{
         q.classList.remove('open');q.classList.add('long');showWords(f,t,0,n,n);
