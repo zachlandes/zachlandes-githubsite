@@ -19,6 +19,9 @@
 /* Prose parts of the article's that the site has no style for */
 .punch{font-style:italic}
 article>.small,.details-body .small{font-size:var(--t-small);color:var(--body)}
+/* An appendix table's or chart's one-line takeaway, read off its numbers */
+.st-take{font-size:var(--t-body);line-height:1.4;color:var(--ink);font-weight:500;text-wrap:pretty}
+.chart .st-take{margin:var(--s4) 0 var(--s8)}
 .runnote{font-size:var(--t-small);color:var(--body);border-left:2px solid var(--rule);padding-left:var(--s12)}
 /* A note's first paragraph runs on from its number, as the site's one-paragraph notes do; the rest start their own lines */
 .sn-p+.sn-p{display:block;margin-top:var(--s8);text-indent:0}
@@ -110,6 +113,11 @@ table.key tr.grp th[rowspan]{text-transform:none;letter-spacing:0;font-size:inhe
 table .gstart,th.grp,td.grp{border-left:1px solid var(--rule)}
 table.key .of{display:block;color:var(--muted)}
 table.key td.miss{color:var(--bad)}
+table.key .rng{color:var(--muted)}
+table.key thead th,table.key tr.grp th[rowspan]{vertical-align:bottom}
+/* A second header row's first cell is not the row-name column, so it must not stick or take its style */
+table.key thead tr+tr th:first-child{position:static;text-align:right;white-space:normal;font-weight:400;color:var(--muted);background:none;padding-left:12px}
+table.key th.long{min-width:11em}
 table.key .fn,.rank{color:var(--muted)}
 .rank{margin-left:6px;font-size:12px}
 .swatch{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px;vertical-align:1px}
