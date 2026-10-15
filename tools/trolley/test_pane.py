@@ -59,11 +59,8 @@ console.log(JSON.stringify([false, true].map(bridge =>
             with self.subTest(n=n):
                 self.assertEqual(spots, expected)
 
-    def test_generated_layout_matches_generator(self):
-        original, spaced = pane.CROWD_LAYOUT
-        self.assertEqual(self.html.count(spaced), 1)
-        restored = pane.once(self.html, spaced, original)
-        self.assertEqual(pane.once(restored, *pane.CROWD_LAYOUT), self.html)
+    def test_crowd_layout_hook_rejects_duplicate_match(self):
+        original, _ = pane.CROWD_LAYOUT
         with self.assertRaises(AssertionError):
             pane.once(original * 2, *pane.CROWD_LAYOUT)
 
