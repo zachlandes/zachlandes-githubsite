@@ -6,7 +6,8 @@
 {%- else -%}
   {%- assign title = page.title | append: " · " | append: site.title -%}
 {%- endif -%}
-{%- assign description = page.description | default: site.description | strip_html | normalize_whitespace -%}
+{%- comment -%} A post's card_description is for link cards alone, so it never shows as a dek on the page {%- endcomment -%}
+{%- assign description = page.card_description | default: page.description | default: site.description | strip_html | normalize_whitespace -%}
 {%- assign is_post = false -%}
 {%- if page.collection == "posts" or page.collection == "unlisted" -%}{%- assign is_post = true -%}{%- endif %}
 <title>{{ title | escape }}</title>
