@@ -218,6 +218,9 @@ class Post:
                 self.para(n)
             elif n.tag == "p" and "st-small" in c:
                 self.para(n, "small")
+            elif n.tag == "p" and "st-take" in c:
+                # An appendix table's one-line takeaway keeps the article's class, as it does inside a chart figure
+                self.para(n, "st-take")
             elif "st-anno" in c:
                 for p in n.kids():
                     assert p.tag == "p", "a note sits beside paragraphs"
@@ -258,7 +261,7 @@ class Post:
             if "tbl-wrap" in c:
                 parts.append(table_box(k))
             elif k.tag == "p":
-                parts.append(f'<p class="small">{k.inner().strip()}</p>')
+                parts.append(f'<p class="{"st-take" if "st-take" in c else "small"}">{k.inner().strip()}</p>')
             elif "st-smgrid" in c:
                 parts.append(f'<div class="st-smgrid">{k.inner().strip()}</div>')
             else:
