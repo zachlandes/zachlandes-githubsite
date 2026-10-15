@@ -135,6 +135,8 @@ table.key .rank{margin-left:4px}
 @media (min-width:720px){table.key tr>:first-child{padding-left:0}}
 /* Only a table that cannot fit the text column takes the wider column */
 @media (min-width:720px){article>.table-box:has(>table.bleed){grid-column:wide}}
+/* The contents list fills the left side of the wide column from 1360px, so the table widens only to the right there */
+@media (min-width:1360px){article>.table-box:has(>table.bleed){grid-column:prose-start/wide-end}}
 table.key .fn,.rank{color:var(--muted)}
 .rank{margin-left:6px;font-size:12px}
 .swatch{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px;vertical-align:1px}
