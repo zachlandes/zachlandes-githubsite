@@ -1,0 +1,192 @@
+/* The trolley post's own parts: the diorama's question and the article's charts and tables.
+   Written by hand; tools/trolley/build.py writes the post that uses it */
+
+/* The article's chart colours, set in the site's ink and accent; the model colours are the article's own */
+:root{
+  --ink-2:#454c5c; --ink-3:var(--muted); --line:var(--rule); --grid:#ebe7da; --context:#b4b9c4; --card:var(--bg); --st-accent:var(--accent);
+  --bad:#b3261e; --good:#1d7a45; --warn:#8a5300; --warn-bg:#fdf0d6; --review:#6d4bd1; --human:#5d6474;
+  --r-jev:#2a78d6; --r-kev-4b:#d8602a; --r-decider-2b:#8e4fc7; --r-von:#0e93a8; --r-semif:#1b9e6e; --r-verdict:#d1437b; --r-winnow-12b:#7a8812; --r-nimble-9b:#a8662c; --r-jevk5:#4f5fc9; --r-clef:#a83fa8; --r-clef-flash:#5e9e1f; --r-strands-decider-2b:#c23b4a; --r-laya:#d19200;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --ink-2:#c7ccd8; --grid:#2a2a2a; --context:#596073;
+    --bad:#ff9c94; --good:#7fd6a0; --warn:#f3c46b; --warn-bg:#3a2c12; --review:#b9a6ff; --human:#b3bac8;
+    --r-jev:#3987e5; --r-kev-4b:#e0703d; --r-decider-2b:#a974dc; --r-von:#25b0c4; --r-semif:#2bb582; --r-verdict:#e0679a; --r-winnow-12b:#a2b02a; --r-nimble-9b:#c8874a; --r-jevk5:#7f8ceb; --r-clef:#c76ac7; --r-clef-flash:#84c444; --r-strands-decider-2b:#e06372; --r-laya:#c98500;
+  }
+}
+
+/* The few words that changed between two questions; the wash keeps its shape in greyscale, so colour is not the only cue */
+mark.kw{--kw-mix:20%;background:color-mix(in srgb,var(--accent) var(--kw-mix),transparent);color:inherit;border-radius:2px;padding:0 .12em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+@media (prefers-color-scheme:dark){mark.kw{--kw-mix:34%}}
+
+/* Prose parts of the article's that the site has no style for */
+.punch{font-style:italic}
+article>.small,.details-body .small{font-size:var(--t-small);color:var(--body)}
+.runnote{font-size:var(--t-small);color:var(--body);border-left:2px solid var(--rule);padding-left:var(--s12)}
+/* A note's first paragraph runs on from its number, as the site's one-paragraph notes do; the rest start their own lines */
+.sn-p+.sn-p{display:block;margin-top:var(--s8);text-indent:0}
+.st-refs,.st-pins{font-size:var(--t-small)}
+.st-pins{list-style:none;padding-left:0}
+article .st-pins li,article .st-refs li{margin:0 0 var(--s4)}
+/* His appendix headings are two lines: the label, then its title */
+.h-lead{display:block}
+
+/* Charts: the article's marks, in the site's type */
+/* The count chart is drawn 900 wide, so from the margin breakpoint it runs into the right margin, as the site's wide charts do */
+@media (min-width:1360px){.chart.curve{margin-right:calc(-1 * (var(--gutter) + var(--margin)))}}
+.chart svg text{font-family:var(--serif)}
+.chart figcaption,.chart .st-legend,.chart .st-cap{font-size:var(--t-small);color:var(--muted);line-height:1.5}
+.chart .st-legend{display:block;margin:0}
+.st-chart{max-width:none}
+.st-chart svg{width:100%;height:auto;display:block}
+.st-chart .st-narrow{display:none}
+@media (max-width:620px){.st-chart .st-wide{display:none}.st-chart .st-narrow{display:block}}
+.st-fig .st-grid{stroke:var(--grid);stroke-width:1}
+.st-sm .st-grid{stroke:var(--grid);stroke-width:.75}
+.st-tick,.st-note{fill:var(--ink-3)}
+.st-axis{fill:var(--ink-2)}
+.st-name{fill:var(--ink);font-weight:600}
+.st-dim .st-name{fill:var(--ink-3);font-weight:400}
+.st-pname{fill:var(--ink);font-weight:600}
+.st-link{stroke:var(--ink-2);stroke-width:2}
+.st-dim .st-link{stroke:var(--context)}
+.st-stranger{fill:var(--card);stroke:var(--ink);stroke-width:2.4}
+.st-dim .st-stranger{stroke:var(--context)}
+.st-self{fill:var(--st-accent);stroke:var(--card);stroke-width:1.5}
+.st-dim .st-self{fill:var(--context)}
+.st-dev{fill:var(--ink-3)}
+.st-dim .st-dev{fill:var(--context);fill-opacity:.6}
+.st-ci{stroke:var(--st-accent);stroke-width:1.5;stroke-opacity:.55}
+.st-dim .st-ci{stroke:var(--ink-3);stroke-opacity:.5}
+.st-hero .st-name{font-size:15px;font-weight:600}
+.st-hero .st-stranger,.st-hero .st-link{stroke-width:3}
+.st-side2 .st-name{fill:var(--ink-2);font-weight:500}
+.st-side2 .st-self{fill-opacity:.7}
+.st-sep{stroke:var(--ink-3);stroke-dasharray:2 4;stroke-opacity:.6}
+.st-pt{fill:var(--ink-3)}
+.st-pt.st-hot{fill:var(--st-accent)}
+.st-pt.st-z-bad{fill:var(--bad);stroke:var(--card);stroke-width:1}
+.st-mline{fill:none;stroke:var(--ink-3);stroke-width:2}
+.st-mline.st-hot{stroke:var(--st-accent)}
+/* The own-server chart: one row per model, a dot at the share of prompt versions where it keeps its server */
+.retention-compact{table-layout:fixed;width:100%;min-width:0;border-collapse:collapse;font-family:var(--serif);font-size:17px;line-height:1.2}
+.retention-compact .retention-model{width:145px}
+.retention-compact .retention-total{width:76px}
+.retention-compact th,.retention-compact td{min-width:0;border:0;background:none;padding:2px 0;vertical-align:middle;font:inherit}
+.retention-compact thead th{font-size:13px;font-weight:400;color:var(--muted);vertical-align:top;padding-bottom:12px;text-align:left}
+.retention-compact tbody th{font-weight:400;text-align:left;white-space:nowrap}
+.retention-compact .retention-number{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.retention-track,.retention-axis{position:relative;margin:0 8px;height:16px}
+.retention-track{background:linear-gradient(to right,var(--rule) 1px,transparent 1px) 0 0/25% 100%;border-right:1px solid var(--rule)}
+.retention-axis{height:18px;margin-top:5px}
+.retention-axis span{position:absolute;transform:translateX(-50%);white-space:nowrap;font-size:12px}
+.retention-axis-label{display:block;text-align:center}
+.retention-dot{position:absolute;top:50%;width:6px;height:6px;border-radius:50%;background:var(--muted);transform:translate(-50%,-50%)}
+.retention-compact .retention-jev th,.retention-compact .retention-jev .retention-number{font-weight:600}
+.retention-jev .retention-dot{background:var(--st-accent);width:8px;height:8px}
+@media (max-width:600px){
+.retention-compact{font-size:15px}
+.retention-compact .retention-model{width:105px}
+.retention-compact .retention-total{width:62px}
+.retention-compact thead th{font-size:11px}
+.retention-compact th,.retention-compact td{padding:3px 0}
+.retention-axis span{font-size:11px}
+}
+
+/* Small multiples: a grid of small panels with group labels across it */
+.st-smgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--s8) var(--s12);margin:0 0 var(--s8)}
+.st-smgroup{grid-column:1/-1;margin:var(--s16) 0 0;font-size:var(--t-small);font-weight:500;color:var(--ink)}
+.st-smgroup:first-child{margin-top:0}
+.st-smc{margin:0}
+.st-sm{width:100%;height:auto;display:block}
+.st-smc figcaption{font-size:12px;color:var(--muted);padding:0}
+.st-push>.st-push-h{font-size:var(--t-small);font-weight:500;color:var(--ink);padding:0 0 var(--s8)}
+@media (max-width:719px){.chart{padding-inline:16px}.st-smgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* The appendix's folds stack as one list */
+article>details+details{margin-top:0}
+
+/* Tables: the site's, with the article's group heads, colour swatches and red for killing to save nobody */
+.table-box+.small{margin-top:var(--s8)}
+table.key tr.grp th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink);border-bottom:1px solid var(--rule)}
+table.key tr.grp th[rowspan]{text-transform:none;letter-spacing:0;font-size:inherit;color:var(--muted);border-bottom-color:var(--muted)}
+table .gstart,th.grp,td.grp{border-left:1px solid var(--rule)}
+table.key .of{display:block;color:var(--muted)}
+table.key td.miss{color:var(--bad)}
+table.key .fn,.rank{color:var(--muted)}
+.rank{margin-left:6px;font-size:12px}
+.swatch{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px;vertical-align:1px}
+tr.baseline td{color:var(--muted)}
+tr.people td{color:var(--body);font-style:italic;border-top:1px solid var(--muted)}
+.call{margin-left:6px;font-size:12px}
+.call.good{color:var(--good)}
+.call.bad{color:var(--bad)}
+table.human td,table.human th{text-align:left;white-space:normal;vertical-align:top}
+table.human td:first-child{min-width:180px}
+table.human td:nth-child(2){min-width:120px}
+table.human td:nth-child(3){white-space:nowrap}
+table.human td:nth-child(4){min-width:280px}
+table.human ul{margin:4px 0 0;padding-left:16px}
+.wlist li{margin:0 0 var(--s4)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(270px,100%),1fr));gap:var(--s16)}
+.cards h3{font-size:var(--t-body);margin:0 0 var(--s4)}
+.cards ul{margin:0;padding-left:1.2em}
+
+/* The appendix figure's track-order switch and exact count sit with its other choices */
+.dio-count{display:inline-flex;align-items:center;gap:var(--s8)}
+.dio .pills button:disabled{opacity:.35;cursor:default}
+.dio-order{display:inline-flex;align-items:center;gap:var(--s8);font-size:var(--t-small);color:var(--ink);cursor:pointer}
+.dio-order input{margin:0;accent-color:var(--ink)}
+
+/* The diorama's question, from the site design */
+/* The prompt is one more row of the setup grid: its first lines, then the question itself */
+.dio-q{--cap:3;--lh:1.5;margin:0 0 var(--s24)}
+.dio-controls{margin-bottom:var(--s16)}
+.dio-q blockquote.dio-q-text{margin:0;padding:0;border:0;box-shadow:none;background:none;font-size:var(--t-small);line-height:var(--lh);color:var(--body)}
+.dio-q blockquote.dio-q-text.json{font-family:var(--mono);font-size:12.5px;white-space:pre-wrap}
+/* The host script trims folded text to whole words; the clamp only holds the lines while it measures */
+.dio-q.long:not(.open) .dio-q-text{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:var(--cap);line-clamp:var(--cap);overflow:hidden}
+.dio-q-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.dio-q-line{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:var(--s4) var(--s16);margin:var(--s8) 0 0}
+.dio-q-ask{font-size:var(--t-body);font-weight:500;line-height:1.3;color:var(--ink);text-wrap:balance}
+.dio-q-more{font:inherit;font-size:var(--t-small);line-height:1.3;color:var(--ink);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1.5px;text-underline-offset:.2em}
+.dio-q-more:hover{color:var(--accent)}
+/* Robot and wording share a row; each select is as wide as its choice where the browser allows */
+.dio-pick{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s8) var(--s16)}
+.dio-pick label{display:inline-flex;align-items:center;gap:var(--s12)}
+.dio .dio-pick select,.dio select[name=scenario]{field-sizing:content;max-width:100%}
+/* Should a short screen still force the scene narrower, it shrinks about the column's centre */
+.dio{--fit:1;--fit-min:400px}
+.dio .dio-frame{margin-inline:auto}
+/* Below the margin breakpoint the six setups fold into a select, which is where the scene's height comes from */
+@media (max-width:1359px){.dio-row>.pills:has([data-scenario]){display:none}}
+@media (min-width:1360px){.dio select[name=scenario]{display:none}}
+@media (max-width:719px){
+.dio{--fit-min:300px}.dio-q{margin-bottom:var(--s16)}
+.dio-row:has(.dio-pick){display:grid;grid-template-columns:auto minmax(0,1fr);gap:var(--s8) var(--s16)}
+.dio-pick,.dio-pick label{display:contents}
+.dio-pick label .dio-lab{grid-row:1;grid-column:2}
+.dio .dio-pick select{justify-self:start}
+}
+/* With no setup above it, a preset figure has room for its whole prompt */
+.dio:not(:has(.dio-controls)) .dio-q{--cap:14}
+/* From 1360px the figure claims the right margin column, as the wide chart does, and the prompt
+ hangs there beside the scene like a sidenote, so nothing above the scene grows */
+@media (min-width:1360px){
+.dio{display:grid;grid-template-columns:minmax(0,1fr) var(--margin);column-gap:var(--gutter);align-items:start;margin-right:calc(-1 * (var(--gutter) + var(--margin)))}
+.dio>*{grid-column:1}
+/* 5px drops the label's cap tops onto the scene's top edge, which the pane draws 8px into its frame */
+.dio>.dio-q{grid-column:2;grid-row:1/span 3;margin:calc(5px + var(--drop,0px)) 0 0}
+/* Beside the first figure the note stops short of the buttons; a preset's note may run its whole length */
+.dio:has(.dio-controls)>.dio-q{grid-row:2/span 3;--cap:21}
+.dio:has(.dio-controls)>.dio-q:has(.json){--cap:28}
+.dio:not(:has(.dio-controls))>.dio-q{--cap:40}
+.dio-q.dio-row{display:block}
+.dio-q .dio-lab{display:block;margin:0 0 var(--s8)}
+.dio-q{--lh:1.45}
+/* 11px keeps the longest key, "if_you_leave_the_lever_alone", on one line of the column */
+.dio-q blockquote.dio-q-text.json{font-size:11px}
+.dio-q-line{display:block;margin-top:var(--s12)}
+.dio-q-ask{display:block}
+.dio-q-more{margin-top:var(--s8)}
+}

@@ -39,4 +39,26 @@ layout: default
   },{rootMargin:'0px 0px -60% 0px',threshold:[0,1]});
   heads.forEach(h=>io.observe(h));
 })();
+// On wide screens sidenotes hang beside their lines without holding up the text, so a long one can reach the next margin item;
+// each item (a sidenote, or a figure's part marked data-margin) starts below the one before it. The page hears "margins" after
+// each pass, so a marked part can make room for its --drop, and a second pass measures what it did
+(()=>{
+  const article=document.querySelector('article.post-grid'),wide=matchMedia('(min-width:1360px)');
+  const items=()=>[...article.querySelectorAll('.sidenote,[data-margin]')];
+  const pass=()=>{
+    const all=items();all.forEach(n=>n.style.removeProperty('--drop'));
+    if(!wide.matches)return;
+    let floor=-Infinity;
+    for(const n of all){
+      const r=n.getBoundingClientRect();if(!r.height)continue;
+      const drop=Math.max(0,Math.ceil(floor+16-r.top));
+      if(drop)n.style.setProperty('--drop',drop+'px');
+      floor=r.bottom+drop;
+    }
+  };
+  let queued=false;
+  const stack=()=>{if(queued)return;queued=true;requestAnimationFrame(()=>{queued=false;pass();document.dispatchEvent(new Event('margins'));pass()})};
+  const ro=new ResizeObserver(stack);ro.observe(article);items().forEach(n=>ro.observe(n));
+  wide.addEventListener('change',stack);document.fonts&&document.fonts.ready.then(stack);
+})();
 </script>

@@ -46,6 +46,7 @@ feed:
 
 exclude:
   - design/
+  - tools/
   - README.md
   - Gemfile
   - Gemfile.lock
