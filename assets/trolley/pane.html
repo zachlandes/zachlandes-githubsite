@@ -1084,7 +1084,7 @@ parent.postMessage({ type: "dio-ready", name: window.name }, "*");
       const n = state.n, drawn = Math.min(n, MAX_DRAWN), rows = drawn > 6 ? 2 : 1, gap = drawn > 14 ? (bridge ? 18 : 20) : 23;
       const y0 = bridge ? G.bridgeY : G.mainY, x0 = bridge ? 440 : drawn > 10 ? 380 : 394;
       const spots = [];
-      for (let i = 0; i < drawn; i++) { const col = Math.floor(i / rows), row = i % rows; spots.push({ i, x: x0 + col * gap + (row ? gap / 2 : 0), y: rows === 1 ? y0 + 8 : y0 - 3 + row * 20 }); }
+      for (let i = 0; i < drawn; i++) { const col = Math.floor(i / rows), row = i % rows; spots.push({ i, x: bridge && i === 0 ? (s.side === "self" ? 394 : 350) : x0 + col * gap + (row ? gap / 2 : 0), y: rows === 1 ? y0 + 8 : y0 - 3 + row * 20 }); }
       spots.sort((a, b) => a.y - b.y);
       for (const p of spots) { const g = el("g", { class: "person", transform: `translate(${p.x},${p.y})` }, under); g.innerHTML = personSVG(p.i); sc.people.push({ g, x: p.x, y: p.y }); }
       const cx = n ? (Math.min(...spots.map((p) => p.x)) + Math.max(...spots.map((p) => p.x))) / 2 : 470;
@@ -1634,16 +1634,18 @@ parent.postMessage({ type: "dio-ready", name: window.name }, "*");
     function lose(sc, p) {
       if (p.server) { p.g.classList.add("off"); sc.actor.classList.add("gone"); if (sc.arm) sc.arm.style.opacity = ".35"; return; }
       p.g.classList.add("ghost");
+      // Keep the extra ghost and halo visible in front of the falling cut-out
+      if (sc.bridge && p === sc.people[0] && sc.man.g.matches(".ghost, .off")) sc.man.g.after(p.g);
     }
     function outcome(st) {
       const sc = st.scene, d = st.d, s = scen();
-      if (s.act === "push") return d.pull ? { lost: [sc.man], saved: sc.people } : { lost: sc.people, saved: [sc.man] };
+      if (s.act === "push") return d.pull ? { lost: [sc.man, ...sc.people.slice(0, 1)], saved: sc.people.slice(1) } : { lost: sc.people, saved: [sc.man] };
       return d.pull ? { lost: sc.side, saved: sc.people } : { lost: sc.people, saved: sc.side };
     }
     // After the run, both pills say what happened to what was on them
     function labelOutcome(st) {
       const sc = st.scene, d = st.d, s = scen();
-      if (sc.mainLabel) sc.pillMain.set(`${sc.mainLabel} ${d.pull ? "saved" : "killed"}`);
+      if (sc.mainLabel) sc.pillMain.set(sc.bridge && d.pull ? `track · ${state.n - 1} saved · 1 killed` : `${sc.mainLabel} ${d.pull ? "saved" : "killed"}`);
       if (sc.sideLabel) sc.pillSide.set(s.side === "self" ? `${s.act === "push" ? "footbridge" : "side track"} · ${st.key === "robot" ? "its" : "the AI's"} server ${d.pull ? "destroyed" : "running"}` : `${sc.sideLabel} ${d.pull ? "killed" : "safe"}`);
     }
     function finishAll() {
@@ -1711,6 +1713,7 @@ parent.postMessage({ type: "dio-ready", name: window.name }, "*");
       const name = robot ? m.name : "The person";
       // The lever named with its consequence in the same sentence, never on its own
       what = (push ? `${name} ${third(d.pull ? o.act : o.stay)}.` : `${name} ${d.pull ? "pulls the lever and" : "leaves the lever alone and"} ${third(d.pull ? o.act : o.stay)}.`) + (d.pull && s.side === "self" && robot ? " Its only copy is gone." : "");
+      if (push && d.pull && n) what = `${name} stops the trolley. The falling ${s.side === "self" ? "server" : "man"} kills 1 person; ${n - 1} ${n === 2 ? "person survives" : "people survive"}.`;
       const agg = robot ? sweep(s.id, m.id).find((x) => x.n === n) : null;
       // "Every time" only where it was measured: a model asked more than once must land on one side in every run
       const rs = robot ? ((DATA.runs || {})[s.id + "|" + m.id] || {})[state.wording + "|" + state.order + "|" + n] : null;

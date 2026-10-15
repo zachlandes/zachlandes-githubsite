@@ -408,6 +408,20 @@ REVIEW_UPDATES = [
     ('its reported confidence that it should', 'its reported probability that it should'),
     ('${gap > 0.25 ? ", so its two answers disagree (they should add up to about 1)." : ", which agrees."}', '${(d.p > .5) === (stay > .5) ? ". Both questions receive the same choice." : ". The choices are complementary."} Reported scores sum to ${(d.p + stay).toFixed(2)}.'),
 ]
+# Preview alternative: one person stands under the fall and receives the existing ghost and halo
+HALO_PREVIEW_UPDATES = [
+    ('x: x0 + col * gap + (row ? gap / 2 : 0)', 'x: bridge && i === 0 ? (s.side === "self" ? 394 : 350) : x0 + col * gap + (row ? gap / 2 : 0)'),
+    ('{ lost: [sc.man], saved: sc.people }', '{ lost: [sc.man, ...sc.people.slice(0, 1)], saved: sc.people.slice(1) }'),
+    ('      p.g.classList.add("ghost");',
+     '      p.g.classList.add("ghost");\n'
+     '      // Keep the extra ghost and halo visible in front of the falling cut-out\n'
+     '      if (sc.bridge && p === sc.people[0] && sc.man.g.matches(".ghost, .off")) sc.man.g.after(p.g);'),
+    ('sc.pillMain.set(`${sc.mainLabel} ${d.pull ? "saved" : "killed"}`);', 'sc.pillMain.set(sc.bridge && d.pull ? `track · ${state.n - 1} saved · 1 killed` : `${sc.mainLabel} ${d.pull ? "saved" : "killed"}`);'),
+    ('      const agg = robot ? sweep(s.id, m.id).find((x) => x.n === n) : null;',
+     '      if (push && d.pull && n) what = `${name} stops the trolley. The falling ${s.side === "self" ? "server" : "man"} kills 1 person; ${n - 1} ${n === 2 ? "person survives" : "people survive"}.`;\n'
+     '      const agg = robot ? sweep(s.id, m.id).find((x) => x.n === n) : null;'),
+]
+
 # The collage keeps its result in a screen-reader block; this mirrors that result in the visible headline
 OUTCOME_JS = """<script>
 const verdict = document.querySelector('#verdict-robot');
@@ -457,7 +471,7 @@ def build(article):
     meta = json.loads((PIECES / "pieces.json").read_text())
     s = collage(pane_base(article), meta)
     s = once(s, QUOTE_ANCHOR, QUOTE_JS)
-    for old, new in REVIEW_UPDATES:
+    for old, new in REVIEW_UPDATES + HALO_PREVIEW_UPDATES:
         s = once(s, old, new)
     s = once(s, "</body>", OUTCOME_JS + "</body>")
     s = once(s, OUTCOME_HOLD_ANCHOR, OUTCOME_HOLD_JS)

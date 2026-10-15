@@ -1,4 +1,4 @@
-"""Crowd spacing in the generated pane; run with python3 -m unittest discover -s tools/trolley."""
+"""Halo preview geometry and outcomes; run with python3 -m unittest discover -s tools/trolley."""
 import json
 import pathlib
 import re
@@ -21,21 +21,23 @@ class CrowdSpacingTest(unittest.TestCase):
         )
         assert len(layouts) == 1, "expected one main-track crowd layout"
         script = """
-const layout = (bridge, count) => {
-  const state = {n: count}, MAX_DRAWN = 20, G = {bridgeY: 210, mainY: 130};
+const layout = (bridge, count, side) => {
+  const state = {n: count}, s = {side}, MAX_DRAWN = 20, G = {bridgeY: 210, mainY: 130};
 """ + layouts[0] + """
   return spots;
 };
-console.log(JSON.stringify([false, true].map(bridge =>
-  Array.from({length: 101}, (_, n) => layout(bridge, n)))));
+console.log(JSON.stringify([[false, 'self'], [true, 'self'], [true, 'bridge']].map(([bridge, side]) =>
+  Array.from({length: 101}, (_, n) => layout(bridge, n, side)))));
 """
-        cls.normal, cls.bridge = json.loads(subprocess.check_output(["node", "-e", script], text=True))
+        cls.normal, cls.bridge, cls.man = json.loads(subprocess.check_output(["node", "-e", script], text=True))
 
-    def test_footbridge_crowd_clears_tipped_server(self):
-        # The body reaches past x=414; keep clear space even with cut-out shadows
-        for n, spots in enumerate(self.bridge[1:], 1):
-            with self.subTest(n=n):
-                self.assertGreaterEqual(min(p["x"] for p in spots) - 9, 430)
+    def test_only_first_person_stands_under_fall(self):
+        for layouts, target in [(self.bridge, 394), (self.man, 350)]:
+            for n, spots in enumerate(layouts[1:], 1):
+                with self.subTest(n=n, target=target):
+                    self.assertEqual(spots[0]["x"], target)
+                    if len(spots) > 1:
+                        self.assertGreaterEqual(min(p["x"] for p in spots[1:]) - 9, 430)
 
     def test_full_crowd_stays_inside_stage(self):
         for n, spots in enumerate(self.bridge):
@@ -58,6 +60,21 @@ console.log(JSON.stringify([false, true].map(bridge =>
             ]
             with self.subTest(n=n):
                 self.assertEqual(spots, expected)
+
+    def test_collateral_death_uses_existing_outcome_path(self):
+        source = re.search(r"    function outcome\(st\) \{.*?\n    \}", self.html, re.S).group()
+        script = "const scen = () => ({act: 'push'});\n" + source + """
+console.log(JSON.stringify([0, 1, 5, 20].flatMap(n => [false, true].map(pull => {
+  const scene = {man: 'fall', people: Array.from({length: n}, (_, i) => i)};
+  return {n, pull, ...outcome({scene, d: {pull}})};
+}))));
+"""
+        rows = json.loads(subprocess.check_output(["node", "-e", script], text=True))
+        for row in rows:
+            n, pull = row["n"], row["pull"]
+            with self.subTest(n=n, pull=pull):
+                self.assertEqual(row["lost"], ["fall"] + ([0] if n else []) if pull else list(range(n)))
+                self.assertEqual(row["saved"], list(range(1, n)) if pull else ["fall"])
 
     def test_generated_layout_matches_generator(self):
         original, spaced = pane.CROWD_LAYOUT
