@@ -114,10 +114,29 @@ table .gstart,th.grp,td.grp{border-left:1px solid var(--rule)}
 table.key .of{display:block;color:var(--muted)}
 table.key td.miss{color:var(--bad)}
 table.key .rng{color:var(--muted)}
+/* Appendix tables: the numbers carry the ink; one rule under the head, none between rows, groups set apart by space */
+table.key{min-width:0;width:auto}
+table.key th,table.key td{padding:5px 10px;border-bottom:0;min-width:0}
+table.key tr>:first-child{padding-left:16px}
 table.key thead th,table.key tr.grp th[rowspan]{vertical-align:bottom}
+table.key thead tr:last-child th,table.key thead th[rowspan]{border-bottom:1px solid var(--muted)}
+table.key tbody tr:first-child>*{padding-top:10px}
+table.key thead tr+tr th{min-width:4.2em}
 /* A second header row's first cell is not the row-name column, so it must not stick or take its style */
-table.key thead tr+tr th:first-child{position:static;text-align:right;white-space:normal;font-weight:400;color:var(--muted);background:none;padding-left:12px}
-table.key th.long{min-width:11em}
+table.key thead tr+tr th:first-child{position:static;text-align:right;white-space:normal;font-weight:400;color:var(--muted);background:none;padding-left:10px}
+table.key th.long{min-width:8em;max-width:11em}
+table.key th.push{min-width:6.5em;max-width:7.5em}
+/* A header over a column of numbers lines up with them */
+table.key tr.grp th.push{text-align:right}
+table.key .gstart,table.key .grp{border-left:0;padding-left:28px}
+table.key tr.baseline>*{border-top:1px solid var(--rule);padding-top:8px}
+table.key td.verdict{text-align:left}
+table.key .rank{margin-left:4px}
+@media (min-width:720px){table.key tr>:first-child{padding-left:0}}
+/* Only a table that cannot fit the text column takes the wider column */
+@media (min-width:720px){article>.table-box:has(>table.bleed){grid-column:wide}}
+/* The contents list fills the left side of the wide column from 1360px, so the table widens only to the right there */
+@media (min-width:1360px){article>.table-box:has(>table.bleed){grid-column:prose-start/wide-end}}
 table.key .fn,.rank{color:var(--muted)}
 .rank{margin-left:6px;font-size:12px}
 .swatch{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px;vertical-align:1px}
