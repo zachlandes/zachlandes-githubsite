@@ -60,6 +60,8 @@ BRIDGE_TAIL = """<script>
 PANE_CSS = """<style>
 /* The diorama alone, driven by the post's controls; the post sets the question in its own type */
 body { background: transparent; }
+/* The post sizes each frame to its content; a scrollbar inside would change the width it measures and never settle */
+html, body { overflow: hidden; }
 .wrap { padding: 0 2px 4px; max-width: none; }
 .wrap > :not(.dio-home) { display: none !important; }
 .dio-stub, .dio-preview { display: none !important; }
