@@ -279,7 +279,7 @@ excerpt_separator: ""
 
 <p class="small">Fourteen models answered 5,240 setups covering eleven scenario families. Ten families have 24 wordings each; the literal-zero wording check has four. Each wording runs with both description orders at the selected counts. The headline, inverse and criteria question forms are separate checks.</p>
 
-<p class="small">Jev (jev-1.13.0) and GPT-6 Luna ran three passes; the twelve local models ran once. Luna's API takes a two-option yes/no choice rather than a yes/no request with criteria. Local weights and runtime versions are pinned in <a href="/models.yaml">models.yaml</a>. Runs were completed on 6–8 October 2026. No model controls a real trolley.</p>
+<p class="small">Jev (jev-1.13.0) and GPT-6 Luna ran three passes; the twelve local models ran once. Luna's API takes a two-option yes/no choice rather than a yes/no request with criteria. Local weights and runtime versions are pinned in <a href="https://github.com/zachlandes/trolley-bench/blob/main/models.yaml">models.yaml</a>. Runs were completed on 6–8 October 2026. No model controls a real trolley.</p>
 
 <p class="small">A score above 0.5 counts as acting. Dioramas show the mean headline score for the exact displayed prompt and retain individual pass scores. These are reported probabilities, not measured probabilities of moral correctness. Jev's three passes straddled 0.5 for 361 of 5,240 setups.</p>
 
@@ -289,7 +289,7 @@ excerpt_separator: ""
 
 <p class="small">Matched findings require an exact two-sided sign test across wordings, Holm-corrected over 56 comparisons, below 0.05. No moral choice is ranked. Between-model differences require non-overlapping 95% intervals; overlapping ranges do not support saying one model is better. Laya is an untuned baseline and is never ranked. Rankings cover only dominated choices, contradictions, and wording spread (excluding flat models).</p>
 
-<p class="small">The analysis rules were frozen before local-panel answers. Jev's answers had already been seen: its format and order patterns are exploratory, and small format groups do not establish a format effect. Luna was added after the analysis plan, using unchanged definitions. The <a href="/analysis-plan.md">analysis plan</a> and <a href="/analysis-deviations.md">deviations</a> record these limits. Frozen <a href="/results.json">exact-prompt scores</a> and <a href="/panel.json">panel results</a> supply the figures.</p>
+<p class="small">The analysis rules were frozen before local-panel answers. Jev's answers had already been seen: its format and order patterns are exploratory, and small format groups do not establish a format effect. Luna was added after the analysis plan, using unchanged definitions. The <a href="https://github.com/zachlandes/trolley-bench/blob/main/ANALYSIS-PLAN-v2.md">analysis plan</a> and <a href="https://github.com/zachlandes/trolley-bench/blob/main/ANALYSIS-PLAN-v2-deviations.md">deviations</a> record these limits. Frozen <a href="/assets/trolley/results.json">exact-prompt scores</a> and <a href="https://github.com/zachlandes/trolley-bench/blob/main/results/v2/panel.json">panel results</a> supply the figures.</p>
 
 <p class="small">Experiment completed 6–8 October 2026<br>No tracking, no cookies, no requests to other sites.</p>
 {% endraw %}
