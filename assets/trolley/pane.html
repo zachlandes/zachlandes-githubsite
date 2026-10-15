@@ -512,9 +512,9 @@ body { font-family: "Newsreader", Georgia, serif; }
 </style>
 <style>
 
-#verdict-robot { display: grid; }
-#verdict-robot > * { grid-area: 1 / 1; }
-.outcome-hold { visibility: hidden; }
+.verdict:not([hidden]) { display: grid; }
+.verdict > * { grid-area: 1 / 1; }
+.verdict-hold { visibility: hidden; }
 </style>
 </head>
 <body>
@@ -1547,15 +1547,13 @@ parent.postMessage({ type: "dio-ready", name: window.name }, "*");
       $("send").disabled = !cell(); $("send").textContent = "Send the trolley";
       $("next-frame").hidden = true;
       lock(false);
-      verdict(stages.robot, null); verdict(stages.human, null);
-      const held = robotDecision(), hv = $("verdict-robot");
-      if (held) {
-        const rest = hv.innerHTML;
-        verdict(stages.robot, held);
-        const out = hv.querySelector(".sr-only .headline");
-        hv.innerHTML = rest;
-        if (out) { const p = document.createElement("p"); p.className = "headline outcome-hold"; p.textContent = out.textContent; hv.append(p); }
+      for (const [st, d] of [[stages.robot, robotDecision()], [stages.human, humanDecision()]]) {
+        const v = st.key === "robot" ? $("verdict-robot") : $("verdict-human"), lines = [];
+        // The robot's outcome is shown through the mirror, so its screen-reader line counts too
+        if (d) for (const partial of [true, false]) { drawVerdict(st, d, partial); v.querySelectorAll(st.key === "robot" ? ".headline" : ":scope > .headline").forEach((h) => lines.push(h.textContent)); }
+        st.hold = lines.map((t) => `<p class="headline verdict-hold">${esc(t)}</p>`).join("");
       }
+      verdict(stages.robot, null); verdict(stages.human, null);
     }
     function lock(v) { document.querySelectorAll("#diorama .pickers input, #wording, #order, #compare").forEach((i) => { i.disabled = v || (i.id === "count" && +i.max < 1); }); }
     const ease = (t) => 1 - Math.pow(1 - t, 3);
@@ -1683,6 +1681,10 @@ parent.postMessage({ type: "dio-ready", name: window.name }, "*");
 
     const ICON = { good: `<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`, bad: `<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>` };
     function verdict(st, d, partial) {
+      drawVerdict(st, d, partial);
+      if (st.hold) (st.key === "robot" ? $("verdict-robot") : $("verdict-human")).insertAdjacentHTML("beforeend", st.hold);
+    }
+    function drawVerdict(st, d, partial) {
       const v = st.key === "robot" ? $("verdict-robot") : $("verdict-human");
       const s = scen(), m = model(), n = state.n, push = s.act === "push";
       const robot = st.key === "robot", o = outcomes(s, n, robot);
