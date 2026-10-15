@@ -411,13 +411,18 @@ showOutcome();
 </script>
 """
 # That mirror lengthens the line as the trolley arrives, and a still run's middle frame shows a longer line again, so
-# the frame changed size through each run; every reset holds the run's later lines, hidden, in the line's place, so
-# the verdict is as tall as its tallest line from the start
+# the frame changed size through each run; every reset holds the lines this run will show, hidden, in the line's
+# place, so the verdict is as tall as its tallest line from the start. Holding a line the run never shows would leave
+# a gap under every scene, so the middle frame counts only in still frames
 OUTCOME_HOLD_ANCHOR = "      verdict(stages.robot, null); verdict(stages.human, null);\n"
-OUTCOME_HOLD_JS = """      for (const [st, d] of [[stages.robot, robotDecision()], [stages.human, humanDecision()]]) {
+OUTCOME_HOLD_JS = """      for (const [st, d] of [[stages.robot, robotDecision()], [stages.human, $("col-human").hidden ? null : humanDecision()]]) {
         const v = st.key === "robot" ? $("verdict-robot") : $("verdict-human"), lines = [];
-        // The robot's outcome is shown through the mirror, so its screen-reader line counts too
-        if (d) for (const partial of [true, false]) { drawVerdict(st, d, partial); v.querySelectorAll(st.key === "robot" ? ".headline" : ":scope > .headline").forEach((h) => lines.push(h.textContent)); }
+        if (d) for (const partial of motionReduced() ? [true, false] : [false]) {
+          drawVerdict(st, d, partial);
+          // The robot's outcome reaches its shown line through the mirror, so its screen-reader line is the one to hold
+          const h = v.querySelector(st.key === "robot" && !partial ? ".sr-only .headline" : ":scope > .headline");
+          if (h) lines.push(h.textContent);
+        }
         st.hold = lines.map((t) => `<p class="headline verdict-hold">${esc(t)}</p>`).join("");
       }
 """ + OUTCOME_HOLD_ANCHOR
