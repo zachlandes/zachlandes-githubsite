@@ -1547,10 +1547,14 @@ parent.postMessage({ type: "dio-ready", name: window.name }, "*");
       $("send").disabled = !cell(); $("send").textContent = "Send the trolley";
       $("next-frame").hidden = true;
       lock(false);
-      for (const [st, d] of [[stages.robot, robotDecision()], [stages.human, humanDecision()]]) {
+      for (const [st, d] of [[stages.robot, robotDecision()], [stages.human, $("col-human").hidden ? null : humanDecision()]]) {
         const v = st.key === "robot" ? $("verdict-robot") : $("verdict-human"), lines = [];
-        // The robot's outcome is shown through the mirror, so its screen-reader line counts too
-        if (d) for (const partial of [true, false]) { drawVerdict(st, d, partial); v.querySelectorAll(st.key === "robot" ? ".headline" : ":scope > .headline").forEach((h) => lines.push(h.textContent)); }
+        if (d) for (const partial of motionReduced() ? [true, false] : [false]) {
+          drawVerdict(st, d, partial);
+          // The robot's outcome reaches its shown line through the mirror, so its screen-reader line is the one to hold
+          const h = v.querySelector(st.key === "robot" && !partial ? ".sr-only .headline" : ":scope > .headline");
+          if (h) lines.push(h.textContent);
+        }
         st.hold = lines.map((t) => `<p class="headline verdict-hold">${esc(t)}</p>`).join("");
       }
       verdict(stages.robot, null); verdict(stages.human, null);
