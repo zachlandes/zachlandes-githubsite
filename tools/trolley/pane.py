@@ -410,6 +410,25 @@ new MutationObserver(showOutcome).observe(verdict, {childList:true,subtree:true}
 showOutcome();
 </script>
 """
+# That mirror lengthens the line as the trolley arrives, so the frame grew as each run ended; every reset sets the
+# run's outcome, hidden, in the setup line's place, so the verdict is the outcome's height from the start
+OUTCOME_HOLD_ANCHOR = "      verdict(stages.robot, null); verdict(stages.human, null);\n"
+OUTCOME_HOLD_JS = OUTCOME_HOLD_ANCHOR + """      const held = robotDecision(), hv = $("verdict-robot");
+      if (held) {
+        const rest = hv.innerHTML;
+        verdict(stages.robot, held);
+        const out = hv.querySelector(".sr-only .headline");
+        hv.innerHTML = rest;
+        if (out) { const p = document.createElement("p"); p.className = "headline outcome-hold"; p.textContent = out.textContent; hv.append(p); }
+      }
+"""
+OUTCOME_HOLD_CSS = """<style>
+/* The held outcome shares the setup line's cell, so the verdict is as tall as the longer of the two */
+#verdict-robot { display: grid; }
+#verdict-robot > * { grid-area: 1 / 1; }
+.outcome-hold { visibility: hidden; }
+</style>
+"""
 
 
 def build(article):
@@ -420,6 +439,8 @@ def build(article):
     for old, new in REVIEW_UPDATES:
         s = once(s, old, new)
     s = once(s, "</body>", OUTCOME_JS + "</body>")
+    s = once(s, OUTCOME_HOLD_ANCHOR, OUTCOME_HOLD_JS)
+    s = once(s, "</head>", OUTCOME_HOLD_CSS + "</head>")
     # The article's style comments are notes between its authors, not for the published page
     s = re.sub(r"<style>.*?</style>", lambda m: re.sub(r"/\*.*?\*/", "", m.group(0), flags=re.S), s, flags=re.S)
     # Only the post's frames load it; it is no page of its own
