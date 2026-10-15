@@ -15,9 +15,6 @@
   }
 }
 
-/* The few words that changed between two questions; the wash keeps its shape in greyscale, so colour is not the only cue */
-mark.kw{--kw-mix:20%;background:color-mix(in srgb,var(--accent) var(--kw-mix),transparent);color:inherit;border-radius:2px;padding:0 .12em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
-@media (prefers-color-scheme:dark){mark.kw{--kw-mix:34%}}
 
 /* Prose parts of the article's that the site has no style for */
 .punch{font-style:italic}
