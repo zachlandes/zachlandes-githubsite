@@ -10,7 +10,7 @@ post markup: the article's text and headings as the post's own prose, its notes 
 its charts and tables as figures, and each diorama as a frame of the collage pane (pane.py, built from the
 generator's a.html) driven by assets/trolley/dioramas.js.
 
-It writes the post and assets/trolley/{pane.html,results.js,selection-snapshot.json};
+It writes the post and assets/trolley/{pane.html,results.js,results.json,selection-snapshot.json};
 assets/trolley/{trolley.css,dioramas.js} are written by hand.
 Set CHROME to the browser binary if it is not at the macOS default.
 """
@@ -133,9 +133,23 @@ def slug(s):
     return re.sub(r"[^a-z0-9]+", "-", html.unescape(re.sub(r"<[^>]+>", "", s)).lower()).strip("-")
 
 
+REPO = "https://github.com/zachlandes/trolley-bench/blob/main/"
+# The reader serves these beside the page; on the site they are copies in assets/trolley or the files in the public repository
+LINKS = {
+    "/selection-snapshot.json": f"{ASSETS}/selection-snapshot.json",
+    "/results.json": f"{ASSETS}/results.json",
+    "/models.yaml": REPO + "models.yaml",
+    "/panel.json": REPO + "results/v2/panel.json",
+    "/analysis-plan.md": REPO + "ANALYSIS-PLAN-v2.md",
+    "/analysis-deviations.md": REPO + "ANALYSIS-PLAN-v2-deviations.md",
+}
+
+
 def clean(markup):
-    """The reader's own links, pointed at their copies on the site"""
-    return markup.replace('href="/selection-snapshot.json"', f'href="{ASSETS}/selection-snapshot.json"')
+    """The reader's own links, pointed at where the site keeps them"""
+    for old, new in LINKS.items():
+        markup = markup.replace(f'href="{old}"', f'href="{new}"')
+    return markup
 
 
 class Post:
@@ -346,7 +360,11 @@ def main(reader, bench):
         ROOT / "assets" / "trolley" / "pane.html": pane.build(article),
         ROOT / "assets" / "trolley" / "results.js": "window.DIO_DATA=" + json.dumps(data, separators=(",", ":"), ensure_ascii=False) + ";\n",
         ROOT / "assets" / "trolley" / "selection-snapshot.json": json.dumps(snapshot, indent=1, ensure_ascii=False) + "\n",
+        ROOT / "assets" / "trolley" / "results.json": json.dumps(data, separators=(",", ":"), ensure_ascii=False) + "\n",
     }
+    # Every root-relative link must be a page or file the site has
+    unknown = sorted(set(re.findall(r'href="(/[^"#]*)"', text)) - set(LINKS.values()) - {"/"})
+    assert not unknown, f"the post links files the site does not have: {unknown}"
     for path, out in outputs.items():
         hits = sorted({m.group(0) for m in PRIVATE.finditer(out)})
         assert not hits, f"{path.name} carries private text: {hits}"
