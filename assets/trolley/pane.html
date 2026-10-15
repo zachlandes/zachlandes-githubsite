@@ -1081,8 +1081,8 @@ parent.postMessage({ type: "dio-ready", name: window.name }, "*");
       }
 
       // People on the main track; past MAX_DRAWN the rest are a label, so 100 people stay legible
-      const n = state.n, drawn = Math.min(n, MAX_DRAWN), rows = drawn > 6 ? 2 : 1, gap = drawn > 14 ? 20 : 23;
-      const y0 = bridge ? G.bridgeY : G.mainY, x0 = drawn > 10 ? 380 : 394;
+      const n = state.n, drawn = Math.min(n, MAX_DRAWN), rows = drawn > 6 ? 2 : 1, gap = drawn > 14 ? (bridge ? 18 : 20) : 23;
+      const y0 = bridge ? G.bridgeY : G.mainY, x0 = bridge ? 440 : drawn > 10 ? 380 : 394;
       const spots = [];
       for (let i = 0; i < drawn; i++) { const col = Math.floor(i / rows), row = i % rows; spots.push({ i, x: x0 + col * gap + (row ? gap / 2 : 0), y: rows === 1 ? y0 + 8 : y0 - 3 + row * 20 }); }
       spots.sort((a, b) => a.y - b.y);

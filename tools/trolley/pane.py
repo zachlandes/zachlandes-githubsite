@@ -279,6 +279,15 @@ PUSH_FN = r"""    // The moment the score settles: one that won't push steps bac
 """
 
 
+# Keep the crowd beyond the tipped server without clipping a full twenty-person scene
+CROWD_LAYOUT = (
+    '      const n = state.n, drawn = Math.min(n, MAX_DRAWN), rows = drawn > 6 ? 2 : 1, gap = drawn > 14 ? 20 : 23;\n'
+    '      const y0 = bridge ? G.bridgeY : G.mainY, x0 = drawn > 10 ? 380 : 394;\n',
+    '      const n = state.n, drawn = Math.min(n, MAX_DRAWN), rows = drawn > 6 ? 2 : 1, gap = drawn > 14 ? (bridge ? 18 : 20) : 23;\n'
+    '      const y0 = bridge ? G.bridgeY : G.mainY, x0 = bridge ? 440 : drawn > 10 ? 380 : 394;\n',
+)
+
+
 def collage(src, meta):
     names = [f"people-{i}" for i in range(1, 9)] + [f"workers-{i}" for i in range(1, 7)] + [f"scenery-{i}" for i in range(1, 10)]
     names += ["trolley-1", "lever-1", "lever-2", "server-1", "bridge-1", "track-1", "ground"]
@@ -314,6 +323,7 @@ def collage(src, meta):
     src = once(src, r"      const tufts = .*?\n(?=      if \(bridge\) track\()", "      collageScenery(deco, bridge, s);\n\n", regex=True)
 
     # People, the human at the lever, the developers and the large man
+    src = once(src, *CROWD_LAYOUT)
     src = once(src, r"    function personSVG\(i, extra = \"\"\) \{\n.*?\n    const hardHat = \(\) => [^\n]*\n", PERSON_COLLAGE, regex=True)
     src = once(src, r"        man\.innerHTML = `<g transform=\"scale\(1\.85\)\">\$\{personSVG\(7, [^\n]*\n",
                '        man.innerHTML = `<g transform="scale(1.85)">${personSVG(7, "", "people-3")}</g>`;\n', regex=True)
