@@ -74,6 +74,12 @@
     const ord=f.querySelector('input[name=order]');
     // Ticked, the other part of the scene comes first: the side track, or on the push the footbridge
     if(ord){ord.checked=d.order==='o2';ord.nextElementSibling.textContent=/^the (footbridge|track)$/.test(d.first)?'Footbridge described first':'Side track described first'}
+    // Each setup was asked at its own crowd sizes; the count controls offer only those
+    if(d.ns){
+      const n=Number(d.n),cnt=f.querySelector('select[name=count]');
+      if(cnt)cnt.replaceChildren(...d.ns.map(x=>new Option(x,x,false,x===n)));
+      f.querySelectorAll('[data-n]').forEach(b=>{b.disabled=!d.ns.includes(Number(b.dataset.n));b.setAttribute('aria-pressed',String(Number(b.dataset.n)===n))});
+    }
     q.classList.remove('open');cap(f);
   };
   // Words from..to of the prompt, its own spacing kept, the changed words wrapped in <mark>
@@ -182,6 +188,7 @@
     if(e.target.name==='model'){s.model=e.target.value;preset(f)}
     if(e.target.name==='wording'){s.w=e.target.value;preset(f)}
     if(e.target.name==='order'){s.o=e.target.checked?'o2':'o1';preset(f)}
+    if(e.target.name==='count'){s.n=e.target.value;preset(f)}
     // The compact setup select and the setup chips are one control at two widths, so each follows the other
     if(e.target.name==='scenario'){s.scenario=e.target.value;s.w='';f.querySelectorAll('[data-scenario]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.scenario===e.target.value));preset(f)}
   });

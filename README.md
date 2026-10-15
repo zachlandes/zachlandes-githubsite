@@ -22,8 +22,9 @@ To share a post without listing it, put it in `_unlisted/short-name.md` instead 
 It gets the same layout and a working address, but stays off the home page, the feed and `llms.txt`, and asks search engines not to index it.
 Moving it into `_posts` with a dated file name publishes it.
 
-The trolley post (`_unlisted/trolley.html`) is generated from the trolley-bench article.
-To refresh it, rebuild the article's `site/a.html` there, then run `python3 tools/trolley/build.py path/to/trolley-bench/site`; it rewrites the post, `assets/trolley/pane.html` and `assets/trolley/results.js`.
+The trolley post (`_posts/2026-10-14-trolley-problem.html`, at `/trolley-problem/`) is generated from the trolley-bench article.
+The article is written in its review reader, which applies its `copy.md` to the generator's `site/a.html` and serves the result.
+To refresh the post, run `python3 tools/trolley/build.py <reader URL> path/to/trolley-bench/site` while the reader is up; it rewrites the post, `assets/trolley/pane.html`, `assets/trolley/results.js` and `assets/trolley/selection-snapshot.json`, and stops if any private path or host, or any square-bracket placeholder, would reach the site.
 `assets/trolley/trolley.css` and `assets/trolley/dioramas.js` are written by hand.
 
 ## Previewing

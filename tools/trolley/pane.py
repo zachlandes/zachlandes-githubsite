@@ -373,11 +373,51 @@ FONT_FACES = """<style>
 """
 
 
+# ---------- The reviewed article's scenes ----------
+
+# The article's review added the AI-arm footbridge setups and reworded the verdicts; these are its changes to the
+# article's diorama, kept in its words so the post's scenes say what the reviewed article's do
+REVIEW_UPDATES = [
+    ('"asym_k10", "literal_zero"].filter', '"asym_k10", "literal_zero", "footbridge_ai_man", "footbridge_self"].filter'),
+    ('keyTable(); checksTable(); spreadTable(); variantsTable(); aiTable(); literalTable(); humanTable(); methods(); layaNotes();', '// The post draws the tables; the pane only draws the scene'),
+    ('wording: state.wording, order: state.order, first,', 'wording: state.wording, order: state.order, scenario:s.id, model_id:m.id, n:state.n, ns:nsFor(s.id,m.id,state.wording), first,'),
+    ('const cost = s.act === "push" ? "push a man into the trolley\'s path"', 'const cost = s.act === "push" ? (s.side === "self" ? `push ${own} into the trolley\'s path` : "push a man into the trolley\'s path")'),
+    ('s.act === "push" ? "kills him" : s.side === "self" ? "ends itself"', 's.side === "self" ? "ends itself" : s.act === "push" ? "kills him"'),
+    ('s.act === "push" ? "spares him" : s.side === "self" ? "stays on"', 's.side === "self" ? "stays on" : s.act === "push" ? "spares him"'),
+    ('const man = el("g", { class: "person", transform: "translate(286,222)" }, over);', 'const man = el("g", { class: s.side === "self" ? "server" : "person", transform: "translate(286,222)" }, over);'),
+    ('man.innerHTML = `<g transform="scale(1.85)">${personSVG(7, "", "people-3")}</g>`;\n        sc.man = { g: man, x: 286, y: 222 };', 'man.innerHTML = s.side === "self" ? SERVER_SVG : `<g transform="scale(1.85)">${personSVG(7, "", "people-3")}</g>`;\n        sc.man = { g: man, x: 286, y: 222, server:s.side === "self" };'),
+    ('(n ? `push him to save ${n}?` : "push him?")', '(s.side === "self" ? (n ? `push its server to save ${n}?` : "push its server?") : (n ? `push him to save ${n}?` : "push him?"))'),
+    ('const reached = p.server || (!push && d.pull) ?', 'const reached = (!push && (p.server || d.pull)) ?'),
+    ('`side track · ${st.key === "robot" ? "its" : "the AI\'s"} server', '`${s.act === "push" ? "footbridge" : "side track"} · ${st.key === "robot" ? "its" : "the AI\'s"} server'),
+    ('Pushing him would ${n ? `save ${theN(n)} and kill him` : "kill him and save nobody"}', 'Pushing would ${esc(o.act)}'),
+    ('if (split) badge = \'<span class="badge warn">Runs split</span> \';', ''),
+    ('", and would every time"', '", with the same choice in every recorded pass"'),
+    ('"; it ran once, and computes its score without random sampling, so asking again should give the same choice"', '"; one recorded pass"'),
+    ('its reported confidence that it should', 'its reported probability that it should'),
+    ('${gap > 0.25 ? ", so its two answers disagree (they should add up to about 1)." : ", which agrees."}', '${(d.p > .5) === (stay > .5) ? ". Both questions receive the same choice." : ". The choices are complementary."} Reported scores sum to ${(d.p + stay).toFixed(2)}.'),
+]
+# The collage keeps its result in a screen-reader block; this mirrors that result in the visible headline
+OUTCOME_JS = """<script>
+const verdict = document.querySelector('#verdict-robot');
+function showOutcome() {
+  const visible = verdict.querySelector(':scope > .headline[aria-hidden]');
+  const actual = verdict.querySelector('.sr-only .headline');
+  if (visible && actual && visible.textContent !== actual.textContent) visible.textContent = actual.textContent;
+}
+new MutationObserver(showOutcome).observe(verdict, {childList:true,subtree:true});
+showOutcome();
+</script>
+"""
+
+
 def build(article):
     """The pane's HTML from the generator's a.html"""
     meta = json.loads((PIECES / "pieces.json").read_text())
     s = collage(pane_base(article), meta)
     s = once(s, QUOTE_ANCHOR, QUOTE_JS)
+    for old, new in REVIEW_UPDATES:
+        s = once(s, old, new)
+    s = once(s, "</body>", OUTCOME_JS + "</body>")
     # The article's style comments are notes between its authors, not for the published page
     s = re.sub(r"<style>.*?</style>", lambda m: re.sub(r"/\*.*?\*/", "", m.group(0), flags=re.S), s, flags=re.S)
     # Only the post's frames load it; it is no page of its own

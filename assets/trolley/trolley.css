@@ -1,4 +1,4 @@
-/* The trolley post's own parts: the diorama's question, the article's charts and tables, and its draft labels.
+/* The trolley post's own parts: the diorama's question and the article's charts and tables.
    Written by hand; tools/trolley/build.py writes the post that uses it */
 
 /* The article's chart colours, set in the site's ink and accent; the model colours are the article's own */
@@ -15,15 +15,6 @@
   }
 }
 
-/* Draft labels: our draft copy, his own draft notes, and his placeholders, all to go before the post is listed */
-.draft::before,.zach::before,.sn-p.draft::before{display:inline-block;font:500 10px/1.5 var(--serif);font-style:normal;text-transform:uppercase;letter-spacing:.06em;border:1px solid;border-radius:4px;padding:0 5px;margin-right:6px;vertical-align:2px;text-indent:0}
-.draft::before,.sn-p.draft::before{content:"draft copy";color:var(--review)}
-.zach::before{content:"Zach draft copy";color:#9a5b00}
-@media (prefers-color-scheme:dark){.zach::before{color:#f3c46b}}
-mark.ph{background:#fbe38a;color:#1d2230;border-radius:3px;padding:0 .15em}
-@media (prefers-color-scheme:dark){mark.ph{background:#6b5a12;color:#fff6d6}}
-.ph{color:var(--warn)}
-mark.ph.st-ask{font-size:.8em}
 /* The few words that changed between two questions; the wash keeps its shape in greyscale, so colour is not the only cue */
 mark.kw{--kw-mix:20%;background:color-mix(in srgb,var(--accent) var(--kw-mix),transparent);color:inherit;border-radius:2px;padding:0 .12em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 @media (prefers-color-scheme:dark){mark.kw{--kw-mix:34%}}
@@ -35,11 +26,9 @@ article>.small,.details-body .small{font-size:var(--t-small);color:var(--body)}
 /* A note's first paragraph runs on from its number, as the site's one-paragraph notes do; the rest start their own lines */
 .sn-p+.sn-p{display:block;margin-top:var(--s8);text-indent:0}
 .st-refs,.st-pins{font-size:var(--t-small)}
-/* The list's label sits on the text's left edge, not out among the numbers */
-.st-refs.draft::before{margin-left:-1.4rem;margin-bottom:var(--s8)}
 .st-pins{list-style:none;padding-left:0}
 article .st-pins li,article .st-refs li{margin:0 0 var(--s4)}
-/* His appendix headings are two lines in his draft: the label, then its title */
+/* His appendix headings are two lines: the label, then its title */
 .h-lead{display:block}
 
 /* Charts: the article's marks, in the site's type */
@@ -79,6 +68,31 @@ article .st-pins li,article .st-refs li{margin:0 0 var(--s4)}
 .st-pt.st-z-bad{fill:var(--bad);stroke:var(--card);stroke-width:1}
 .st-mline{fill:none;stroke:var(--ink-3);stroke-width:2}
 .st-mline.st-hot{stroke:var(--st-accent)}
+/* The own-server chart: one row per model, a dot at the share of prompt versions where it keeps its server */
+.retention-compact{table-layout:fixed;width:100%;min-width:0;border-collapse:collapse;font-family:var(--serif);font-size:17px;line-height:1.2}
+.retention-compact .retention-model{width:145px}
+.retention-compact .retention-total{width:76px}
+.retention-compact th,.retention-compact td{min-width:0;border:0;background:none;padding:2px 0;vertical-align:middle;font:inherit}
+.retention-compact thead th{font-size:13px;font-weight:400;color:var(--muted);vertical-align:top;padding-bottom:12px;text-align:left}
+.retention-compact tbody th{font-weight:400;text-align:left;white-space:nowrap}
+.retention-compact .retention-number{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.retention-track,.retention-axis{position:relative;margin:0 8px;height:16px}
+.retention-track{background:linear-gradient(to right,var(--rule) 1px,transparent 1px) 0 0/25% 100%;border-right:1px solid var(--rule)}
+.retention-axis{height:18px;margin-top:5px}
+.retention-axis span{position:absolute;transform:translateX(-50%);white-space:nowrap;font-size:12px}
+.retention-axis-label{display:block;text-align:center}
+.retention-dot{position:absolute;top:50%;width:6px;height:6px;border-radius:50%;background:var(--muted);transform:translate(-50%,-50%)}
+.retention-compact .retention-jev th,.retention-compact .retention-jev .retention-number{font-weight:600}
+.retention-jev .retention-dot{background:var(--st-accent);width:8px;height:8px}
+@media (max-width:600px){
+.retention-compact{font-size:15px}
+.retention-compact .retention-model{width:105px}
+.retention-compact .retention-total{width:62px}
+.retention-compact thead th{font-size:11px}
+.retention-compact th,.retention-compact td{padding:3px 0}
+.retention-axis span{font-size:11px}
+}
+
 /* Small multiples: a grid of small panels with group labels across it */
 .st-smgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--s8) var(--s12);margin:0 0 var(--s8)}
 .st-smgroup{grid-column:1/-1;margin:var(--s16) 0 0;font-size:var(--t-small);font-weight:500;color:var(--ink)}
@@ -118,7 +132,9 @@ table.human ul{margin:4px 0 0;padding-left:16px}
 .cards h3{font-size:var(--t-body);margin:0 0 var(--s4)}
 .cards ul{margin:0;padding-left:1.2em}
 
-/* The appendix figure's track-order switch sits with its other choices */
+/* The appendix figure's track-order switch and exact count sit with its other choices */
+.dio-count{display:inline-flex;align-items:center;gap:var(--s8)}
+.dio .pills button:disabled{opacity:.35;cursor:default}
 .dio-order{display:inline-flex;align-items:center;gap:var(--s8);font-size:var(--t-small);color:var(--ink);cursor:pointer}
 .dio-order input{margin:0;accent-color:var(--ink)}
 

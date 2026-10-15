@@ -1,0 +1,1127 @@
+[
+ {
+  "name": "Laya (untuned baseline)",
+  "stars": 26691,
+  "gh": [
+   "NandhaKishorM/laya"
+  ],
+  "top_repo": "convaiinnovations/laya",
+  "dl": 0,
+  "likes": 4087,
+  "mac": null,
+  "index": null,
+  "names": [
+   "Laya (untuned baseline)"
+  ],
+  "star_rank": 1,
+  "best": 1
+ },
+ {
+  "name": "Decider chat - Gemma-4-31B",
+  "stars": 841,
+  "gh": [
+   "Mapika/decider"
+  ],
+  "top_repo": "Mapika/decider-2b",
+  "dl": 203071,
+  "likes": 93,
+  "mac": "unclear",
+  "index": 57.33,
+  "names": [
+   "Decider chat - Gemma-4-31B",
+   "Decider chat - Qwen3.6-27B",
+   "Decider 35B-A3B (NVFP4)",
+   "Decider 4B",
+   "Decider 2B"
+  ],
+  "star_rank": 8,
+  "dl_rank": 1,
+  "best": 1
+ },
+ {
+  "name": "Kev-9B",
+  "stars": 7412,
+  "gh": [
+   "jaredpalmer/kev"
+  ],
+  "top_repo": "jaredpalmer/kev-4b",
+  "dl": 9662,
+  "likes": 48,
+  "mac": null,
+  "index": null,
+  "names": [
+   "Kev-9B"
+  ],
+  "star_rank": 2,
+  "dl_rank": 5,
+  "best": 2
+ },
+ {
+  "name": "von",
+  "stars": 728,
+  "gh": [
+   "wfzyx/von"
+  ],
+  "top_repo": "wfzyx/von",
+  "dl": 37314,
+  "likes": 47,
+  "mac": "MPS",
+  "index": null,
+  "names": [
+   "von"
+  ],
+  "star_rank": 11,
+  "dl_rank": 2,
+  "best": 2
+ },
+ {
+  "name": "Decision 1.0 Lux (9B)",
+  "stars": 5927,
+  "gh": [
+   "vllm-project/semantic-router"
+  ],
+  "top_repo": "llm-semantic-router/Decision-1.0-Lux-9B",
+  "dl": 0,
+  "likes": 10,
+  "mac": "unclear",
+  "index": 43.49,
+  "names": [
+   "Decision 1.0 Lux (9B)"
+  ],
+  "star_rank": 3,
+  "best": 3
+ },
+ {
+  "name": "Verdict (ModernBERT 151M)",
+  "stars": 107,
+  "gh": [
+   "Heman10x-NGU/Verdict-open-jev"
+  ],
+  "top_repo": "heman10x/rlcd-modernbert-151m",
+  "dl": 21135,
+  "likes": 34,
+  "mac": "CPU",
+  "index": 1.87,
+  "names": [
+   "Verdict (ModernBERT 151M)"
+  ],
+  "star_rank": 19,
+  "dl_rank": 3,
+  "best": 3
+ },
+ {
+  "name": "SemIf",
+  "stars": 4450,
+  "gh": [
+   "TheoLeeCJ/SemIf-OpenJev"
+  ],
+  "top_repo": null,
+  "dl": null,
+  "likes": null,
+  "mac": null,
+  "index": null,
+  "names": [
+   "SemIf"
+  ],
+  "star_rank": 4,
+  "best": 4
+ },
+ {
+  "name": "Winnow-12B",
+  "stars": 4,
+  "gh": [
+   "EldanRing/winnow-inference"
+  ],
+  "top_repo": "EldanRing/Winnow-12B",
+  "dl": 10551,
+  "likes": 12,
+  "mac": "llama.cpp",
+  "index": 50.02,
+  "names": [
+   "Winnow-12B",
+   "Winnow-E4B"
+  ],
+  "star_rank": 41,
+  "dl_rank": 4,
+  "best": 4
+ },
+ {
+  "name": "CLM-v0.1-8B",
+  "stars": 1903,
+  "gh": [
+   "Contrastive-LM/CLM"
+  ],
+  "top_repo": "Contrastive-LM/CLM-v0.1-8B",
+  "dl": 766,
+  "likes": 406,
+  "mac": "CUDA-only",
+  "index": 7.4,
+  "names": [
+   "CLM-v0.1-8B"
+  ],
+  "star_rank": 5,
+  "dl_rank": 16,
+  "best": 5
+ },
+ {
+  "name": "Bespoke Nimble 9B v2",
+  "stars": 1866,
+  "gh": [
+   "bespokelabsai/nimble"
+  ],
+  "top_repo": "bespokelabs/Bespoke-Nimble-9B-v2",
+  "dl": 152,
+  "likes": 2,
+  "mac": "MLX",
+  "index": 39.57,
+  "names": [
+   "Bespoke Nimble 9B v2"
+  ],
+  "star_rank": 6,
+  "dl_rank": 31,
+  "best": 6
+ },
+ {
+  "name": "JevK5",
+  "stars": 119,
+  "gh": [
+   "allebee/jevk5"
+  ],
+  "top_repo": "alibiserikbay/JevK5",
+  "dl": 6101,
+  "likes": 14,
+  "mac": "llama.cpp",
+  "index": 38.81,
+  "names": [
+   "JevK5"
+  ],
+  "star_rank": 18,
+  "dl_rank": 6,
+  "best": 6
+ },
+ {
+  "name": "NeoHorse-Jev-4B",
+  "stars": 1137,
+  "gh": [
+   "TokenRhythm/NeoHorse"
+  ],
+  "top_repo": "TokenRhythm/NeoHorse-Jev-4B",
+  "dl": 813,
+  "likes": 18,
+  "mac": "CUDA-only",
+  "index": 36.75,
+  "names": [
+   "NeoHorse-Jev-4B"
+  ],
+  "star_rank": 7,
+  "dl_rank": 14,
+  "best": 7
+ },
+ {
+  "name": "Lumma-Fev-0.6B",
+  "stars": null,
+  "gh": [],
+  "top_repo": "FrontiersMind/Lumma-fev-0.6b",
+  "dl": 2039,
+  "likes": 61,
+  "mac": "MPS",
+  "index": 2.97,
+  "names": [
+   "Lumma-Fev-0.6B"
+  ],
+  "dl_rank": 7,
+  "best": 7
+ },
+ {
+  "name": "Xor",
+  "stars": null,
+  "gh": [],
+  "top_repo": "juspay/xor",
+  "dl": 1673,
+  "likes": 46,
+  "mac": "CUDA-only",
+  "index": 41.48,
+  "names": [
+   "Xor"
+  ],
+  "dl_rank": 8,
+  "best": 8
+ },
+ {
+  "name": "Surogate Rune 26B-A4B v3",
+  "stars": 828,
+  "gh": [
+   "invergent-ai/surogate"
+  ],
+  "top_repo": "surogate/rune-26b-a4b-GGUF",
+  "dl": 1235,
+  "likes": 19,
+  "mac": "CUDA-only",
+  "index": 57.44,
+  "names": [
+   "Surogate Rune 26B-A4B v3"
+  ],
+  "star_rank": 9,
+  "dl_rank": 11,
+  "best": 9
+ },
+ {
+  "name": "Tev1-4B-experimental",
+  "stars": 156,
+  "gh": [
+   "togethercomputer/tev1"
+  ],
+  "top_repo": "togethercomputer/Tev1-4B-experimental",
+  "dl": 1666,
+  "likes": 20,
+  "mac": "unclear",
+  "index": 29.24,
+  "names": [
+   "Tev1-4B-experimental"
+  ],
+  "star_rank": 16,
+  "dl_rank": 9,
+  "best": 9
+ },
+ {
+  "name": "AnyJev",
+  "stars": 826,
+  "gh": [
+   "nokia-applied-research/AnyJev"
+  ],
+  "top_repo": null,
+  "dl": null,
+  "likes": null,
+  "mac": "unclear",
+  "index": null,
+  "names": [
+   "AnyJev"
+  ],
+  "star_rank": 10,
+  "best": 10
+ },
+ {
+  "name": "jeff (GliFormer)",
+  "stars": 256,
+  "gh": [
+   "logan-markewich/jeff"
+  ],
+  "top_repo": "knowledgator/gliformer-large-v1",
+  "dl": 1500,
+  "likes": 160,
+  "mac": "MPS",
+  "index": 8.04,
+  "names": [
+   "jeff (GliFormer)"
+  ],
+  "star_rank": 14,
+  "dl_rank": 10,
+  "best": 10
+ },
+ {
+  "name": "simple-jev - Qwen3.8-27B (featherless)",
+  "stars": 555,
+  "gh": [
+   "featherless-ai/simple-jev"
+  ],
+  "top_repo": null,
+  "dl": null,
+  "likes": null,
+  "mac": "CPU",
+  "index": 55.74,
+  "names": [
+   "simple-jev - Qwen3.8-27B (featherless)"
+  ],
+  "star_rank": 12,
+  "best": 12
+ },
+ {
+  "name": "Bosun v3.1 1.7B",
+  "stars": 0,
+  "gh": [
+   "Hanno-Labs/jev-compatible-server"
+  ],
+  "top_repo": "Hanno-Labs/bosun-v3.1-1.7b",
+  "dl": 868,
+  "likes": 3,
+  "mac": "llama.cpp",
+  "index": 20.1,
+  "names": [
+   "Bosun v3.1 1.7B"
+  ],
+  "star_rank": 47,
+  "dl_rank": 12,
+  "best": 12
+ },
+ {
+  "name": "razorback16 OpenJev (DiffusionGemma)",
+  "stars": 463,
+  "gh": [
+   "razorback16/openjev"
+  ],
+  "top_repo": null,
+  "dl": null,
+  "likes": null,
+  "mac": "MLX",
+  "index": 37.25,
+  "names": [
+   "razorback16 OpenJev (DiffusionGemma)"
+  ],
+  "star_rank": 13,
+  "best": 13
+ },
+ {
+  "name": "Lumma-Fev-0.1B",
+  "stars": null,
+  "gh": [],
+  "top_repo": "FrontiersMind/Lumma-fev-0.1b",
+  "dl": 824,
+  "likes": 14,
+  "mac": "MPS",
+  "index": 1.78,
+  "names": [
+   "Lumma-Fev-0.1B"
+  ],
+  "dl_rank": 13,
+  "best": 13
+ },
+ {
+  "name": "djev",
+  "stars": 175,
+  "gh": [
+   "Davipar/djev-dev"
+  ],
+  "top_repo": null,
+  "dl": null,
+  "likes": null,
+  "mac": "CUDA-only",
+  "index": 40.28,
+  "names": [
+   "djev"
+  ],
+  "star_rank": 15,
+  "best": 15
+ },
+ {
+  "name": "Bosun v3.1 0.6B",
+  "stars": null,
+  "gh": [],
+  "top_repo": "Hanno-Labs/bosun-v3.1-0.6b",
+  "dl": 805,
+  "likes": 1,
+  "mac": "llama.cpp",
+  "index": 14.32,
+  "names": [
+   "Bosun v3.1 0.6B"
+  ],
+  "dl_rank": 15,
+  "best": 15
+ },
+ {
+  "name": "reflex 27B",
+  "stars": 153,
+  "gh": [
+   "kshetrajna12/reflex"
+  ],
+  "top_repo": null,
+  "dl": null,
+  "likes": null,
+  "mac": "MPS",
+  "index": 52.16,
+  "names": [
+   "reflex 27B"
+  ],
+  "star_rank": 17,
+  "best": 17
+ },
+ {
+  "name": "LFM2.5-350M-RLCD",
+  "stars": null,
+  "gh": [],
+  "top_repo": "notnotsamuel/LFM2.5-350M-RLCD",
+  "dl": 759,
+  "likes": 22,
+  "mac": "MPS",
+  "index": 1.38,
+  "names": [
+   "LFM2.5-350M-RLCD"
+  ],
+  "dl_rank": 17,
+  "best": 17
+ },
+ {
+  "name": "LFM2.5-2.6B-RLCD",
+  "stars": null,
+  "gh": [],
+  "top_repo": "monotykamary/LFM2.5-2.6B-RLCD",
+  "dl": 637,
+  "likes": 6,
+  "mac": "unclear",
+  "index": 6.76,
+  "names": [
+   "LFM2.5-2.6B-RLCD"
+  ],
+  "dl_rank": 18,
+  "best": 18
+ },
+ {
+  "name": "Metask-Jev-4B",
+  "stars": 2,
+  "gh": [
+   "metask-ai/metask-jev"
+  ],
+  "top_repo": "wayfind/metask-jev-4b-policy-mix",
+  "dl": 610,
+  "likes": 1,
+  "mac": "MPS",
+  "index": 26.89,
+  "names": [
+   "Metask-Jev-4B"
+  ],
+  "star_rank": 44,
+  "dl_rank": 19,
+  "best": 19
+ },
+ {
+  "name": "Intern-Decision-4B",
+  "stars": 100,
+  "gh": [
+   "InternLM/Intern-Decision"
+  ],
+  "top_repo": "internlm/Intern-Decision-4B",
+  "dl": 123,
+  "likes": 38,
+  "mac": "CUDA-only",
+  "index": 37.81,
+  "names": [
+   "Intern-Decision-4B"
+  ],
+  "star_rank": 20,
+  "dl_rank": 32,
+  "best": 20
+ },
+ {
+  "name": "AutoJev-27B",
+  "stars": 64,
+  "gh": [
+   "denis-pplx/autojev"
+  ],
+  "top_repo": "denis-pplx/autojev-27b",
+  "dl": 601,
+  "likes": 33,
+  "mac": "unclear",
+  "index": 56.4,
+  "names": [
+   "AutoJev-27B"
+  ],
+  "star_rank": 22,
+  "dl_rank": 20,
+  "best": 20
+ },
+ {
+  "name": "Jevfire",
+  "stars": 69,
+  "gh": [
+   "kikoncuo/jevfire"
+  ],
+  "top_repo": null,
+  "dl": null,
+  "likes": null,
+  "mac": "CUDA-only",
+  "index": 49.37,
+  "names": [
+   "Jevfire"
+  ],
+  "star_rank": 21,
+  "best": 21
+ },
+ {
+  "name": "Verdict (Manavarya09)",
+  "stars": 3,
+  "gh": [
+   "Manavarya09/verdict"
+  ],
+  "top_repo": "Manav2op/verdict-small",
+  "dl": 586,
+  "likes": 1,
+  "mac": "CPU",
+  "index": null,
+  "names": [
+   "Verdict (Manavarya09)"
+  ],
+  "star_rank": 43,
+  "dl_rank": 21,
+  "best": 21
+ },
+ {
+  "name": "Hopper",
+  "stars": 6,
+  "gh": [
+   "hopit-ai/hopper"
+  ],
+  "top_repo": "HopitAI/hopper",
+  "dl": 561,
+  "likes": 7,
+  "mac": "CUDA-only",
+  "index": 39.67,
+  "names": [
+   "Hopper"
+  ],
+  "star_rank": 37,
+  "dl_rank": 22,
+  "best": 22
+ },
+ {
+  "name": "mini-jev",
+  "stars": 57,
+  "gh": [
+   "r-ms/mini-jev"
+  ],
+  "top_repo": null,
+  "dl": null,
+  "likes": null,
+  "mac": "MPS",
+  "index": 20.98,
+  "names": [
+   "mini-jev"
+  ],
+  "star_rank": 23,
+  "best": 23
+ },
+ {
+  "name": "Tev1-0.8B-experimental",
+  "stars": null,
+  "gh": [],
+  "top_repo": "togethercomputer/Tev1-0.8B-experimental",
+  "dl": 558,
+  "likes": 8,
+  "mac": "unclear",
+  "index": 12.85,
+  "names": [
+   "Tev1-0.8B-experimental"
+  ],
+  "dl_rank": 23,
+  "best": 23
+ },
+ {
+  "name": "OpenDecision",
+  "stars": 57,
+  "gh": [
+   "deepanwadhwa/OpenDecision"
+  ],
+  "top_repo": null,
+  "dl": null,
+  "likes": null,
+  "mac": "unclear",
+  "index": null,
+  "names": [
+   "OpenDecision"
+  ],
+  "star_rank": 24,
+  "best": 24
+ },
+ {
+  "name": "MoJev",
+  "stars": 30,
+  "gh": [
+   "MoLeMo-Lab/mojev"
+  ],
+  "top_repo": "MoLeMo-Lab/mojev",
+  "dl": 364,
+  "likes": 4,
+  "mac": "unclear",
+  "index": 11.69,
+  "names": [
+   "MoJev"
+  ],
+  "star_rank": 29,
+  "dl_rank": 24,
+  "best": 24
+ },
+ {
+  "name": "open-alternative-jev",
+  "stars": 56,
+  "gh": [
+   "ikermoel/open-alternative-jev"
+  ],
+  "top_repo": null,
+  "dl": null,
+  "likes": null,
+  "mac": "CPU",
+  "index": null,
+  "names": [
+   "open-alternative-jev"
+  ],
+  "star_rank": 25,
+  "best": 25
+ },
+ {
+  "name": "this-that 1.2",
+  "stars": 38,
+  "gh": [
+   "FLock-io/this-that-model"
+  ],
+  "top_repo": "flock-io/this-that-model-1.2",
+  "dl": 282,
+  "likes": 5,
+  "mac": "MLX",
+  "index": 28.14,
+  "names": [
+   "this-that 1.2"
+  ],
+  "star_rank": 28,
+  "dl_rank": 25,
+  "best": 25
+ },
+ {
+  "name": "LitJev",
+  "stars": 45,
+  "gh": [
+   "zhengxuyu/litjev"
+  ],
+  "top_repo": null,
+  "dl": null,
+  "likes": null,
+  "mac": "unclear",
+  "index": null,
+  "names": [
+   "LitJev"
+  ],
+  "star_rank": 26,
+  "best": 26
+ },
+ {
+  "name": "Julia 1",
+  "stars": null,
+  "gh": [],
+  "top_repo": "SupersonicLabs/Julia-1",
+  "dl": 274,
+  "likes": 186,
+  "mac": "CPU",
+  "index": 5.54,
+  "names": [
+   "Julia 1"
+  ],
+  "dl_rank": 26,
+  "best": 26
+ },
+ {
+  "name": "JoshuaSP diffusiongemma (open-jev)",
+  "stars": 41,
+  "gh": [
+   "JoshuaSP/open-jev"
+  ],
+  "top_repo": null,
+  "dl": null,
+  "likes": null,
+  "mac": "CUDA-only",
+  "index": 49.47,
+  "names": [
+   "JoshuaSP diffusiongemma (open-jev)"
+  ],
+  "star_rank": 27,
+  "best": 27
+ },
+ {
+  "name": "Jev-Omni",
+  "stars": null,
+  "gh": [],
+  "top_repo": "akhilaaa3/Jev-Omni",
+  "dl": 248,
+  "likes": 269,
+  "mac": "CUDA-only",
+  "index": 40.53,
+  "names": [
+   "Jev-Omni"
+  ],
+  "dl_rank": 27,
+  "best": 27
+ },
+ {
+  "name": "open-jev (pngwn)",
+  "stars": null,
+  "gh": [],
+  "top_repo": "pngwn/system-one-qwen3.5-4b-scorer-v2b",
+  "dl": 241,
+  "likes": 5,
+  "mac": "unclear",
+  "index": 29.91,
+  "names": [
+   "open-jev (pngwn)"
+  ],
+  "dl_rank": 28,
+  "best": 28
+ },
+ {
+  "name": "TinyJev",
+  "stars": 25,
+  "gh": [
+   "ankit-aglawe/tinyjev"
+  ],
+  "top_repo": "AnkitAI/TinyJev-0.6B",
+  "dl": 201,
+  "likes": 1,
+  "mac": "MLX",
+  "index": null,
+  "names": [
+   "TinyJev"
+  ],
+  "star_rank": 31,
+  "dl_rank": 29,
+  "best": 29
+ },
+ {
+  "name": "lev",
+  "stars": 28,
+  "gh": [
+   "Abhinavexists/lev"
+  ],
+  "top_repo": "interfaze-ai/lev",
+  "dl": 197,
+  "likes": 84,
+  "mac": "CPU",
+  "index": 38.54,
+  "names": [
+   "lev"
+  ],
+  "star_rank": 30,
+  "dl_rank": 30,
+  "best": 30
+ },
+ {
+  "name": "FastJev",
+  "stars": 21,
+  "gh": [
+   "chengyongru/fastjev"
+  ],
+  "top_repo": null,
+  "dl": null,
+  "likes": null,
+  "mac": "MPS",
+  "index": null,
+  "names": [
+   "FastJev"
+  ],
+  "star_rank": 32,
+  "best": 32
+ },
+ {
+  "name": "openvons",
+  "stars": 14,
+  "gh": [
+   "genai-craft/openvons"
+  ],
+  "top_repo": null,
+  "dl": null,
+  "likes": null,
+  "mac": "unclear",
+  "index": 28.42,
+  "names": [
+   "openvons"
+  ],
+  "star_rank": 33,
+  "best": 33
+ },
+ {
+  "name": "Intern-Decision-0.8B",
+  "stars": null,
+  "gh": [],
+  "top_repo": "internlm/Intern-Decision-0.8B",
+  "dl": 88,
+  "likes": 13,
+  "mac": "CUDA-only",
+  "index": 11.94,
+  "names": [
+   "Intern-Decision-0.8B"
+  ],
+  "dl_rank": 33,
+  "best": 33
+ },
+ {
+  "name": "jev-local",
+  "stars": 8,
+  "gh": [
+   "us/jev-local"
+  ],
+  "top_repo": null,
+  "dl": null,
+  "likes": null,
+  "mac": "unclear",
+  "index": null,
+  "names": [
+   "jev-local"
+  ],
+  "star_rank": 34,
+  "best": 34
+ },
+ {
+  "name": "Intern-Decision-2B",
+  "stars": null,
+  "gh": [],
+  "top_repo": "internlm/Intern-Decision-2B",
+  "dl": 81,
+  "likes": 6,
+  "mac": "CUDA-only",
+  "index": 19.38,
+  "names": [
+   "Intern-Decision-2B"
+  ],
+  "dl_rank": 34,
+  "best": 34
+ },
+ {
+  "name": "RSI-Jev",
+  "stars": 8,
+  "gh": [
+   "Shanghua-Gao/RSI-Jev"
+  ],
+  "top_repo": "shgao/rsi-jev-v2.0-qwen3.5-2b",
+  "dl": 0,
+  "likes": 1,
+  "mac": "MPS",
+  "index": null,
+  "names": [
+   "RSI-Jev"
+  ],
+  "star_rank": 35,
+  "best": 35
+ },
+ {
+  "name": "Jebadiah 27B",
+  "stars": 1,
+  "gh": [
+   "getainode/jebadiah"
+  ],
+  "top_repo": "frontier-infra/jebadiah-27b-GGUF",
+  "dl": 63,
+  "likes": 0,
+  "mac": "MPS",
+  "index": 54.67,
+  "names": [
+   "Jebadiah 27B"
+  ],
+  "star_rank": 45,
+  "dl_rank": 35,
+  "best": 35
+ },
+ {
+  "name": "Visual-Jev",
+  "stars": 8,
+  "gh": [
+   "jiangxiluning/Visual-Jev"
+  ],
+  "top_repo": null,
+  "dl": null,
+  "likes": null,
+  "mac": "MLX",
+  "index": null,
+  "names": [
+   "Visual-Jev"
+  ],
+  "star_rank": 36,
+  "best": 36
+ },
+ {
+  "name": "JPT-9B",
+  "stars": 5,
+  "gh": [
+   "tic-top/llm2jev"
+  ],
+  "top_repo": "kirp/jpt-0.8b",
+  "dl": 40,
+  "likes": 1,
+  "mac": "MLX",
+  "index": 46.89,
+  "names": [
+   "JPT-9B",
+   "JPT-0.8B"
+  ],
+  "star_rank": 40,
+  "dl_rank": 36,
+  "best": 36
+ },
+ {
+  "name": "Lavoir",
+  "stars": 0,
+  "gh": [
+   "moganai/lavoir"
+  ],
+  "top_repo": "moganai/lavoir",
+  "dl": 13,
+  "likes": 0,
+  "mac": "unclear",
+  "index": 8.69,
+  "names": [
+   "Lavoir"
+  ],
+  "star_rank": 48,
+  "dl_rank": 37,
+  "best": 37
+ },
+ {
+  "name": "system-one-gemma",
+  "stars": 6,
+  "gh": [
+   "akash-kamat/system-one-gemma"
+  ],
+  "top_repo": null,
+  "dl": null,
+  "likes": null,
+  "mac": "CPU",
+  "index": 5.07,
+  "names": [
+   "system-one-gemma"
+  ],
+  "star_rank": 38,
+  "best": 38
+ },
+ {
+  "name": "ruling",
+  "stars": 6,
+  "gh": [
+   "bradAGI/ruling"
+  ],
+  "top_repo": null,
+  "dl": null,
+  "likes": null,
+  "mac": "MLX",
+  "index": null,
+  "names": [
+   "ruling"
+  ],
+  "star_rank": 39,
+  "best": 39
+ },
+ {
+  "name": "Qwev",
+  "stars": 3,
+  "gh": [
+   "HopLee6/Qwev"
+  ],
+  "top_repo": null,
+  "dl": null,
+  "likes": null,
+  "mac": "unclear",
+  "index": null,
+  "names": [
+   "Qwev"
+  ],
+  "star_rank": 42,
+  "best": 42
+ },
+ {
+  "name": "Jobe",
+  "stars": 0,
+  "gh": [
+   "MantisShrimpdev/jobe"
+  ],
+  "top_repo": null,
+  "dl": null,
+  "likes": null,
+  "mac": "CUDA-only",
+  "index": 32.35,
+  "names": [
+   "Jobe"
+  ],
+  "star_rank": 46,
+  "best": 46
+ },
+ {
+  "name": "mmastrac diffusiongemma (vLLM PR 57250)",
+  "stars": null,
+  "gh": [],
+  "top_repo": null,
+  "dl": null,
+  "likes": null,
+  "mac": "CUDA-only",
+  "index": 32.24,
+  "names": [
+   "mmastrac diffusiongemma (vLLM PR 57250)"
+  ],
+  "best": 999
+ },
+ {
+  "name": "Decision 1.0 Nox (4B)",
+  "stars": null,
+  "gh": [],
+  "top_repo": "llm-semantic-router/Decision-1.0-Nox-4B",
+  "dl": 0,
+  "likes": 12,
+  "mac": "unclear",
+  "index": 34.36,
+  "names": [
+   "Decision 1.0 Nox (4B)"
+  ],
+  "best": 999
+ },
+ {
+  "name": "Decision 1.0 Sol (2B)",
+  "stars": null,
+  "gh": [],
+  "top_repo": "llm-semantic-router/Decision-1.0-Sol-2B",
+  "dl": 0,
+  "likes": 4,
+  "mac": "unclear",
+  "index": 25.32,
+  "names": [
+   "Decision 1.0 Sol (2B)"
+  ],
+  "best": 999
+ },
+ {
+  "name": "Decision 1.0 Eos (0.8B)",
+  "stars": null,
+  "gh": [],
+  "top_repo": "llm-semantic-router/Decision-1.0-Eos-0.8B",
+  "dl": 0,
+  "likes": 1,
+  "mac": "unclear",
+  "index": 18.41,
+  "names": [
+   "Decision 1.0 Eos (0.8B)"
+  ],
+  "best": 999
+ },
+ {
+  "name": "Decision 1.0 Kai",
+  "stars": null,
+  "gh": [],
+  "top_repo": "llm-semantic-router/Decision-1.0-Kai-0.6B",
+  "dl": 0,
+  "likes": 8,
+  "mac": "unclear",
+  "index": 6.52,
+  "names": [
+   "Decision 1.0 Kai"
+  ],
+  "best": 999
+ },
+ {
+  "name": "Decision 1.0 Lex",
+  "stars": null,
+  "gh": [],
+  "top_repo": "llm-semantic-router/decision-1.0-lex",
+  "dl": 0,
+  "likes": 5,
+  "mac": "unclear",
+  "index": 4.54,
+  "names": [
+   "Decision 1.0 Lex"
+  ],
+  "best": 999
+ },
+ {
+  "name": "Qwen-2.5-1B-RLCD (harsha)",
+  "stars": null,
+  "gh": [],
+  "top_repo": "harshatheg/Qwen-2.5-1B-RLCD",
+  "dl": 0,
+  "likes": 573,
+  "mac": "MLX",
+  "index": 3.78,
+  "names": [
+   "Qwen-2.5-1B-RLCD (harsha)"
+  ],
+  "best": 999
+ }
+]
