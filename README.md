@@ -15,6 +15,8 @@ description: One line that appears under the title, on the home page, in link pr
 ```
 
 The address is `/short-name/`.
+For link-preview text that should not appear on the page, set `card_description` instead; it is used only in the page's description and link-card tags.
+`image:` gives a post its own 1200×630 link-card picture in place of the site's default `/assets/og/zach-landes.png`.
 Section headings (`##`) become the contents list in the left margin on wide screens.
 Posts can hold raw HTML and scripts, so interactive figures work; `figure.wide`, `.table-box`, `details` and the margin-note markup in `_unlisted/placeholder.md` show the patterns the stylesheet supports.
 
