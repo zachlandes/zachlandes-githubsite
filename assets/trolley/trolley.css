@@ -33,7 +33,7 @@ article .st-pins li,article .st-refs li{margin:0 0 var(--s4)}
 
 /* Charts: the article's marks, in the site's type */
 /* The count chart is drawn 900 wide, so from the margin breakpoint it runs into the right margin, as the site's wide charts do */
-@media (min-width:1360px){.chart.curve{margin-right:calc(-1 * (var(--gutter) + var(--margin)))}}
+@media (min-width:1280px){.chart.curve{margin-right:calc(-1 * (var(--gutter) + var(--margin)))}}
 .chart svg text{font-family:var(--serif)}
 .chart figcaption,.chart .st-legend,.chart .st-cap{font-size:var(--t-small);color:var(--muted);line-height:1.5}
 .chart .st-legend{display:block;margin:0}
@@ -135,8 +135,8 @@ table.key .rank{margin-left:4px}
 @media (min-width:720px){table.key tr>:first-child{padding-left:0}}
 /* Only a table that cannot fit the text column takes the wider column */
 @media (min-width:720px){article>.table-box:has(>table.bleed){grid-column:wide}}
-/* The contents list fills the left side of the wide column from 1360px, so the table widens only to the right there */
-@media (min-width:1360px){article>.table-box:has(>table.bleed){grid-column:prose-start/wide-end}}
+/* The contents list fills the left side of the wide column from 1280px, so the table widens only to the right there */
+@media (min-width:1280px){article>.table-box:has(>table.bleed){grid-column:prose-start/wide-end}}
 table.key .fn,.rank{color:var(--muted)}
 .rank{margin-left:6px;font-size:12px}
 .swatch{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px;vertical-align:1px}
@@ -183,8 +183,8 @@ table.human ul{margin:4px 0 0;padding-left:16px}
 .dio{--fit:1;--fit-min:400px}
 .dio .dio-frame{margin-inline:auto}
 /* Below the margin breakpoint the six setups fold into a select, which is where the scene's height comes from */
-@media (max-width:1359px){.dio-row>.pills:has([data-scenario]){display:none}}
-@media (min-width:1360px){.dio select[name=scenario]{display:none}}
+@media (max-width:1279px){.dio-row>.pills:has([data-scenario]){display:none}}
+@media (min-width:1280px){.dio select[name=scenario]{display:none}}
 @media (max-width:719px){
 .dio{--fit-min:300px}.dio-q{margin-bottom:var(--s16)}
 .dio-row:has(.dio-pick){display:grid;grid-template-columns:auto minmax(0,1fr);gap:var(--s8) var(--s16)}
@@ -194,9 +194,9 @@ table.human ul{margin:4px 0 0;padding-left:16px}
 }
 /* With no setup above it, a preset figure has room for its whole prompt */
 .dio:not(:has(.dio-controls)) .dio-q{--cap:14}
-/* From 1360px the figure claims the right margin column, as the wide chart does, and the prompt
+/* From 1280px the figure claims the right margin column, as the wide chart does, and the prompt
  hangs there beside the scene like a sidenote, so nothing above the scene grows */
-@media (min-width:1360px){
+@media (min-width:1280px){
 .dio{display:grid;grid-template-columns:minmax(0,1fr) var(--margin);column-gap:var(--gutter);align-items:start;margin-right:calc(-1 * (var(--gutter) + var(--margin)))}
 .dio>*{grid-column:1}
 /* 5px drops the label's cap tops onto the scene's top edge, which the pane draws 8px into its frame */

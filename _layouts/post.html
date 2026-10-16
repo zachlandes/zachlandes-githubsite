@@ -43,7 +43,7 @@ layout: default
 // each item (a sidenote, or a figure's part marked data-margin) starts below the one before it. The page hears "margins" after
 // each pass, so a marked part can make room for its --drop, and a second pass measures what it did
 (()=>{
-  const article=document.querySelector('article.post-grid'),wide=matchMedia('(min-width:1360px)');
+  const article=document.querySelector('article.post-grid'),wide=matchMedia('(min-width:1280px)');
   const items=()=>[...article.querySelectorAll('.sidenote,[data-margin]')];
   const pass=()=>{
     const all=items();all.forEach(n=>n.style.removeProperty('--drop'));
