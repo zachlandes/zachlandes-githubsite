@@ -1,6 +1,6 @@
 Hi, I'm Zach Landes.
 I'm a professional software engineer and product leader specialized in AI, with a background in the social sciences.
-Since 2024, I've been a partner at 2ML, where we build and advise on AI-powered products.
+Since 2024, I've been a partner at [2ML](https://2ml.ai), where we build and advise on AI-powered products.
 
 I've been building in and around AI and machine learning (ML) since 2008, when I helped create an app called Trumpet, an ML-powered app for iOS that made recommendations for restaurants by learning a user's preferences.
 The application, later called Ness, was named to Apple's App Store Best of 2012 list, and the company was acquired by OpenTable in 2014.
