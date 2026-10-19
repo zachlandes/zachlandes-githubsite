@@ -79,6 +79,12 @@
     const vis=document.createElement('span'),sr=document.createElement('span');
     vis.append(...t.childNodes);vis.setAttribute('aria-hidden','true');sr.className='dio-q-sr';sr.textContent=full;t.replaceChildren(vis,sr);
   };
+  // Safari's toolbar changes innerHeight on scroll; svh keeps the fit at the toolbar-open height
+  // A real viewport resize still changes this measurement, including desktop height-only resizes
+  const viewport=document.createElement('div');
+  viewport.setAttribute('aria-hidden','true');
+  viewport.style.cssText='position:fixed;top:0;width:0;height:100vh;height:100svh;visibility:hidden;pointer-events:none';
+  document.body.append(viewport);
   // Narrow the scene just enough that setup, prompt, scene and buttons share one screen; the figure's
   // CSS opts in with --fit:1 and sets the narrowest scene with --fit-min; sizes come from inside the pane, as the frame's own height lags a resize
   const fit=f=>{
@@ -88,7 +94,7 @@
     const fr=f.getBoundingClientRect(),ir=i.getBoundingClientRect(),ab=f.querySelector('.dio-actions').getBoundingClientRect().bottom;
     const paneH=doc.querySelector('.wrap').getBoundingClientRect().bottom+doc.defaultView.scrollY+8;
     const rest=ab-fr.top-ir.height,chrome=paneH-sr.height,padW=ir.width-sr.width,col=i.parentElement.getBoundingClientRect().width;
-    const room=innerHeight-32-rest-chrome,min=parseFloat(getComputedStyle(f).getPropertyValue('--fit-min'))||400,w=Math.max(Math.min(col,min),Math.min(col,room*sr.width/sr.height+padW));
+    const room=viewport.getBoundingClientRect().height-32-rest-chrome,min=parseFloat(getComputedStyle(f).getPropertyValue('--fit-min'))||400,w=Math.max(Math.min(col,min),Math.min(col,room*sr.width/sr.height+padW));
     const next=w>=col-1?'':Math.floor(w)+'px';if(i.style.maxWidth!==next)i.style.maxWidth=next;
   };
   addEventListener('resize',()=>figs().forEach(cap));
