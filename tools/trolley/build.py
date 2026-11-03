@@ -164,16 +164,23 @@ class Post:
         self.out.append(clean(s))
 
     def para(self, n, cls=""):
+        """Each note's marker stays on the sentence the article puts it after, so its margin note hangs beside that line"""
         refs = list(n.find_all(by_class("st-note-ref")))
+        marks, belows = {}, []
         for r in refs:
-            r.parent.children.remove(r)
+            k, (side, below) = self.next_note(r)
+            # Control characters survive inner()'s escaping, so the marker goes in once the paragraph is markup
+            spot = f"\x00{k}\x00"
+            r.parent.children[r.parent.children.index(r)] = spot
+            marks[spot] = f'<sup class="ref"><a href="#note-{k}" id="ref-{k}" aria-label="Note {k}">{k}</a></sup>{side}'
+            belows.append(below)
         attr = f' class="{cls}"' if cls else ""
         body = n.inner().strip()
         if not refs:
             return self.add(f"<p{attr}>{body}</p>")
-        assert len(refs) == 1, "one note to a paragraph"
-        k, (side, below) = self.next_note(refs[0])
-        self.add(f'<div class="has-note">\n<p{attr}>{body}<sup class="ref"><a href="#note-{k}" id="ref-{k}" aria-label="Note {k}">{k}</a></sup>{side}</p>\n{below}\n</div>')
+        body = re.sub(r"\s*(\x00\d+\x00)", lambda m: marks[m.group(1)], body)
+        below = "\n".join(belows)
+        self.add(f'<div class="has-note">\n<p{attr}>{body}</p>\n{below}\n</div>')
 
     def next_note(self, ref):
         """A note of the article's as the site's margin note: hung in the margin on wide screens, a footnote below on narrow ones"""
