@@ -1,4 +1,6 @@
 title: Zach Landes
+# The home page's tab and link-card title follows the name with this, the opening of description below
+tagline: Product engineer, consultant, and published economist
 description: Product engineer, consultant, and published economist in San Francisco. I write about software development, my experiments in AI and social science, and whatever else I'm excited about.
 url: https://zachlandes.com
 # Set, even empty, so the build never asks the GitHub API for it
@@ -37,9 +39,16 @@ defaults:
       type: unlisted
     values:
       layout: post
+      sitemap: false
+  # The trolley post's embedded figure pane, which asks search engines not to index it
+  - scope:
+      path: assets/trolley/pane.html
+    values:
+      sitemap: false
 
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
 
 feed:
   path: feed.xml
