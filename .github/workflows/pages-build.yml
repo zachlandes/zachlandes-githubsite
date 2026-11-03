@@ -19,3 +19,5 @@ jobs:
         with:
           source: ./
           destination: ./_site
+      - name: Sitemap, robots.txt and structured data match the pages
+        run: python3 .github/scripts/check-built-site.py _site
